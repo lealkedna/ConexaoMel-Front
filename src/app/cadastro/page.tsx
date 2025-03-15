@@ -40,17 +40,6 @@ const Cadastro = () => {
                     <input className={styles.input} name="email" placeholder="Digite o seu e-mail" value={formData.email} onChange={handleChange} required />
                     <input className={styles.input} name="telefone" placeholder="Digite o seu Telefone" value={formData.telefone} onChange={handleChange} required />
                     <input className={styles.input} name="senha" type="password" placeholder="Crie uma senha" value={formData.senha} onChange={handleChange} required />
-                    {/* <div className={styles.agrupamento}>
-                        <p className={styles.subtitle}>Tipo de Conta* </p>
-                        <label >
-                            <input type="radio" name="tipoConta" value="vendedor" checked={formData.tipoConta === 'vendedor'} onChange={handleChange} />
-                            Vendedor
-                        </label>
-                        <label style={{ marginLeft: '16px' }}>
-                            <input type="radio" name="tipoConta" value="comprador" checked={formData.tipoConta === 'comprador'} onChange={handleChange} />
-                            Comprador
-                        </label>
-                    </div> */}
                     <button type="submit" className={styles.button}>
                         Cadastre-se
                     </button>
