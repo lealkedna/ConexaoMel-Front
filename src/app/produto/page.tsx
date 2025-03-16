@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Perfil(){
+export default function Produto(){
     return(
         <>
             <h1> Produtor  </h1>
