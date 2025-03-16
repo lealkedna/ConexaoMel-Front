@@ -5,6 +5,7 @@ import HeroSection from "@/components/HeroSection";
 import HeroImage from "@/components/HeroImage";
 import ProductsSection from "@/components/ProductsSection";
 import HowItWorksSection from "@/components/HowItWorksSection";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
@@ -21,8 +22,13 @@ export default function Home() {
         <ProductsSection />
       </div>
       <div className={styles.HowItWorksSectionContainer}>
-      <HowItWorksSection />
-    </div>
+        <HowItWorksSection />
+      </div>
+
+      <div>
+        <Footer />
+      </div>
+
     </div>
   );
 }

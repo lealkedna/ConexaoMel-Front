@@ -9,7 +9,7 @@
   }
   
   .icon {
-    background-color: #d17c0e;
+    background-color: #FFB64C;
     padding: 15px;
     border-radius: 50%;
     display: flex;
@@ -25,7 +25,8 @@
   
   .description {
     font-size: 1rem;
-    color: #666;
+    color: #000;
+    font-weight: 500;
     margin-top: 5px;
   }
   
