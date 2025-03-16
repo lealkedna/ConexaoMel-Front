@@ -1,9 +1,9 @@
-import Image from 'next/image';
-import Link from 'next/link';
+// import Image from 'next/image';
+// import Link from 'next/link';
 import styles from '@/app/signup/Signup.module.css';
 import { api } from "@/services/api";
 import { redirect } from 'next/navigation';
-import axios from 'axios';
+// import axios from 'axios';
 
 export default function Signup(){
 
@@ -43,7 +43,7 @@ export default function Signup(){
         // console.log(telefone);
         // console.log(senha);
 
-        redirect("/login")
+        redirect("/logar")
     }
 
     return(
@@ -61,7 +61,7 @@ export default function Signup(){
                         Cadastre-se
                     </button>
                 </form>
-                <p className={styles.link}>Já tem conta? <a href="/login">Fazer Login</a></p>
+                <p className={styles.link}>Já tem conta? <a href="/logar">Fazer Login</a></p>
             </div>
         </div>
         </>

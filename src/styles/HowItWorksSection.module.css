@@ -1,0 +1,38 @@
+.section {
+    background-color: #FFB64C36;
+    width:80%;
+    height: auto;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    border-radius: 8px;
+    background-image: url('/images/detalhes2.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom center;
+    padding: 4em;
+  }
+  
+  .title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .subtitle {
+    font-size: 1.2rem;
+    color: #000;
+    max-width: 600px;
+    margin: 0 auto 30px;
+  }
+  
+  .steps {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+    color: #000;
+
+  }
+  
