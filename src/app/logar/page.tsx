@@ -1,6 +1,9 @@
 import React from 'react';
-import styles from '@/app/logar/Logar.module.css'
-import { api } from "@/services/api"
+import styles from '@/app/logar/Logar.module.css';
+import { api } from "@/services/api";
+import axios from 'axios';
+import { redirect } from 'next/navigation';
+import { cookies } from 'next/headers';
 
 export default function login(){
 
@@ -16,16 +19,35 @@ export default function login(){
 
         try{
 
-            const response = await api.post("/sigin", {
+            const response = await api.post("/signin", {
                 email, 
                 password
             })
+             // @ts-ignore
+            if (!response.data.token){
+                return;
+            }
 
             console.log(response.data);
 
+            const expressTime = 60 * 60 * 24 * 30 * 1000;
+             const cookieStore = await cookies();
+
+             // @ts-ignore
+            cookieStore.set("signin", response.data.token, {
+                maxAge: expressTime,
+                path: "/",
+                httpOnly: false,
+                // secure: process.env.NODE_ENV == "production",
+                secure: false
+            })
+
         }catch(err){
             console.log(err);
+            return;
         }
+
+        redirect('/produto');
     }
 
     return(
@@ -39,7 +61,7 @@ export default function login(){
                         Entrar
                     </button>
                 </form>
-                <p className={styles.link}>Ainda não tem Conta? <a href="/cadastro">Cadastre-se!</a></p>
+                <p className={styles.link}>Ainda não tem Conta? <a href="/signup">Cadastre-se!</a></p>
             </div>
         </div>
     );
