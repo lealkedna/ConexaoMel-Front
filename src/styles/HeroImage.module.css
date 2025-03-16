@@ -1,0 +1,13 @@
+.imageContainer {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+
+}
+
+.image {
+    border-radius: 10px;
+    object-fit: cover;
+    float: right;
+}
