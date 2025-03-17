@@ -14,7 +14,6 @@
   font-family: var(--font-quicksand-sans), sans-serif;
   /* border: 8px solid darkmagenta; */
 }
-
 .heroContainer {
   display: flex;
   justify-content: space-between;
@@ -22,45 +21,83 @@
   max-width: 1500px;
   width: 100%;
   padding: 20px;
-  /* border: 5px solid darkolivegreen; */
+  gap: 20px; /* Melhor espaçamento entre os elementos */
 }
 
-.heroContainer>* {
+/* Faz cada elemento do container ocupar um espaço proporcional */
+.heroContainer > * {
   flex: 1;
+  min-width: 300px;
 }
 
-.ProductContaine {
+/* Ajuste de largura para o container de produtos */
+.ProductContainer {
   width: 100%;
-
 }
 
+/* Ajuste para ocupar toda a tela */
 .page {
   position: relative;
   width: 100%;
+  overflow-x: hidden; /* Evita rolagem horizontal indesejada */
 }
 
+/* Imagem de fundo esquerda */
 .page::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 50%;
   height: 100%;
   background: url("/images/BackgroundEsquerda.png") no-repeat left top;
-  background-size: contain;
+  background-size: cover; /* Alterado para melhor ajuste */
   z-index: -1;
 }
 
+/* Imagem de fundo direita */
 .page::after {
   content: "";
   position: absolute;
   bottom: 0;
   right: 0;
-  width: 100%;
+  width: 50%;
   height: 100%;
   background: url("/images/backgroundDireita.png") no-repeat right bottom;
-  background-size: contain;
+  background-size: cover; /* Ajustado para responsividade */
   z-index: -1;
+}
+
+/* Responsividade para tablets */
+@media (max-width: 1024px) {
+  .heroContainer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .heroContainer > * {
+    width: 100%;
+    min-width: unset;
+  }
+
+  .page::before,
+  .page::after {
+    width: 100%; /* Expande o fundo para cobrir toda a largura */
+    background-size: contain;
+  }
+}
+
+/* Ajustes para telas menores (celulares) */
+@media (max-width: 600px) {
+  .heroContainer {
+    padding: 10px;
+  }
+
+  .page::before,
+  .page::after {
+    display: none; /* Oculta as imagens de fundo em telas muito pequenas */
+  }
 }
 
 @media (max-width: 768px) {
