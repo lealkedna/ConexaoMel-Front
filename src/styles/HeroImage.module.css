@@ -4,9 +4,36 @@
     align-items: center;
     max-width: 100%;
     height: auto;
+    padding: 10px; 
 }
+
 
 .image {
     border-radius: 10px;
     object-fit: cover;
+    max-width: 100%;
+    height: auto; 
+}
+
+
+@media (max-width: 1024px) {
+    .imageContainer {
+        justify-content: center; 
+    }
+
+    .image {
+        max-width: 80%; 
+    }
+}
+
+
+@media (max-width: 600px) {
+    .imageContainer {
+        justify-content: center; 
+        padding: 5px; 
+    }
+
+    .image {
+        max-width: 90%; 
+    }
 }

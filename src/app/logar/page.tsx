@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from '@/app/logar/Logar.module.css';
 import { api } from "@/services/api";
-import axios from 'axios';
+// import axios from 'axios';
 import { redirect } from 'next/navigation';
 import { cookies } from 'next/headers';
 
