@@ -1,21 +1,59 @@
 "use client"
 
 import { ChangeEvent, useState } from "react";
-import Image from "next/image";
 import styles from "@/styles/Produto.module.css";
 import { UploadCloud } from "lucide-react";
+import Image from "next/image";
 import { ButtonCreate } from "./ButtonCreate";
+import { api } from "@/services/api";
+import { getCookieClient } from "@/lib/cookiesClient";
+import { getVendedorId } from "@/lib/cookiesClient";
 
 export function FormProduto(){
     const [image, setImage] = useState<File>();
     const [previewImage, setPreviewImage] = useState("")
+
+    async function handleCadastrar(formData: FormData){
+
+        const descricao = formData.get("descricao");
+        const preco = formData.get("preco");
+        const role = formData.get("role");
+        const vendedorId = getVendedorId();
+
+        if (!descricao || !preco || !role || !image || !vendedorId){
+            return;
+        }
+        const data = new FormData();
+        
+        data.append("descricao", descricao);
+        data.append("preco", preco);
+        data.append("role", role);
+        data.append("vendedorId", vendedorId);
+        data.append("imagemName", image);
+
+        const token = getCookieClient();
+
+
+        await api.post("/produto", data, {
+            headers:{
+              Authorization: `Bearer ${token}`
+            }
+        })
+        .catch((err) => {
+            console.log(err);
+            return;
+        })
+        console.log("Produto cadastrado com sucesso:", data);
+      
+
+    }
 
     function handleFile(e: ChangeEvent<HTMLInputElement>){
         if (e.target.files && e.target.files[0]){
             const image = e.target.files[0];
             
             if (image.type !== "image/jpeg" && image.type !== "image/png"){
-                console.log("Formato de Imagem inalido só aceitamos png ou jpeg");
+                console.log("Formato de Imagem invalido só aceitamos png ou jpeg");
                 return;
             };
             setImage(image);
@@ -23,9 +61,6 @@ export function FormProduto(){
 
         }
     };
-    function handleCadastrar(){
-
-    }
 
     return(
         <div>
@@ -51,16 +86,16 @@ export function FormProduto(){
                 <textarea 
                     className={`${styles.camposFormulario} ${styles.textarea}`} 
                     placeholder="Dê uma descrição do seu mel" 
-                    name="description" 
+                    name="descricao" 
                     required>
                 </textarea>
                 <input 
                     type="number" 
-                    name="price" placeholder="Qual o preço por Litro?" 
+                    name="preco" placeholder="Qual o preço por Litro?" 
                     required 
                     className={styles.camposFormulario}>    
                 </input>
-                <select className={styles.camposFormulario} name="florada">
+                <select className={styles.camposFormulario} name="role">
                     <option key={1} value={1}>Aroeira</option>
                     <option>Cajueiro</option>
                     <option>Eucalipto</option>

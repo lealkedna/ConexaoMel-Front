@@ -2,10 +2,16 @@ import React from 'react';
 import { FormProduto } from '@/components/FormProduto';
 import styles from '@/styles/Produto.module.css';
 import {api} from "@/services/api";
-import { getCookieClient } from '@/lib/cookiesClient';
+import { getCookieServer } from '@/lib/cookiesServer';
 
-export default function Produto(){
-    const token = getCookieClient();
+export default async function Produto(){
+    // const token =  getCookieServer();
+
+    // const response = await api.get("/produto", {
+    //     headers: {
+    //         Authorization: `Bearer ${token}`
+    //     }
+    // })
 
     return(
         <main className={styles.container}>
