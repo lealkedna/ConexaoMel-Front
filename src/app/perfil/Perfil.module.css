@@ -1,0 +1,113 @@
+/* Estilos gerais */
+.perfilContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* Cartão do perfil */
+.profileCard {
+    background: #f9f3e4;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.profileImage {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.profileName {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.profileDescription {
+    color: #666;
+    margin-top: 5px;
+}
+
+/* Seção de informações */
+.infoCard {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.infoCard h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* Produtos cadastrados */
+.productsCard {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    margin-top: 20px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.productsTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.productsTable th, .productsTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: center;
+}
+
+.productsTable th {
+    background: #f4d03f;
+    color: white;
+}
+
+/* Botões de ação */
+.editBtn, .deleteBtn {
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.editBtn {
+    background: #2ecc71;
+    color: white;
+}
+
+.deleteBtn {
+    background: #e74c3c;
+    color: white;
+}
+
+/* Botão para adicionar produto */
+.buttonContainer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.addProductBtn {
+    background: #f39c12;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.addProductBtn:hover {
+    background: #e67e22;
+}

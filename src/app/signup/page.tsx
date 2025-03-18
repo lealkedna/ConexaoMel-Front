@@ -56,7 +56,7 @@ export default function Signup(){
                     <input className={styles.input} name="nome" placeholder="Digite o seu nome" />
                     <input className={styles.input} name="email" placeholder="Digite o seu e-mail"/>
                     <input className={styles.input} name="telefone" placeholder="Digite o seu Telefone" />
-                    <input className={styles.input} name="password"  placeholder="Crie uma senha" />
+                    <input className={styles.input} name="password"  type="password" placeholder="Crie uma senha" />
                     <button type="submit" className={styles.button}>
                         Cadastre-se
                     </button>

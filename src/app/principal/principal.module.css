@@ -1,3 +1,29 @@
 .container{
     color: 'orange';
 }
+
+.badge {
+    background-color:#201914;
+    color: #fff;
+    padding: 5px 10px 15px;
+    border-radius: 25px 25px 25px 25px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    padding-top: 12px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 180px;
+}
+
+.badge a{
+    color: #FFB64C;
+}
+
+.badge a:hover{
+    color: darkorange;
+}
