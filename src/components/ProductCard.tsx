@@ -3,15 +3,31 @@ import Image from "next/image";
 import styles from "@/styles/ProductCard.module.css";
 import Button from "./Button";
 
-const ProductCard = ({ image, title, description, price }) => {
+interface ProductCardProps {
+  nome: string;
+  imagemName: string;
+  descricao: string;
+  preco: number;
+}
+
+const ProductCard:  React.FC<ProductCardProps> = ({ nome, imagemName, descricao, preco }) => {
+
+  const imagemValida = imagemName ? imagemName : '/images/logo.jpeg';
+  
   return (
     <div className={styles.card}>
-      <Image src={image} alt={title} width={300} height={200} className={styles.image} />
-      <h3 className={styles.title}>{title}</h3>
-      <p className={styles.description}>{description}</p>
+      <Image
+        src={imagemValida}
+        alt={nome}
+        width={200}
+        height={200}
+        className={styles.image}
+      />
+      <h3 className={styles.title}>{nome}</h3>
+      <p className={styles.description}>{descricao}</p>
       <div className={styles.footer}>
-        <span className={styles.price}>${price}</span>
-      <Button text="Comprar Agora ➜" primary  href="/principal" />
+        <span className={styles.price}>${preco}</span>
+        <Button text="Comprar Agora ➜" primary href="/principal" />
       </div>
     </div>
   );

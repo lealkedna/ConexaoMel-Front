@@ -1,29 +1,36 @@
-.container{
-    color: 'orange';
+.produtosContainer {
+    padding: 60px;
+    position: relative;
+    background-image: url('/images/backgroundProdutos.jpg');
+    background-size: cover;
+    background-position: bottom;
+    text-align: center;
 }
 
+.produtosContainer h1 {
+    color: #201914;
+    margin-bottom: 15px;
+}
+
+
+
 .badge {
-    background-color:#201914;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #201914;
     color: #fff;
     padding: 5px 10px 15px;
     border-radius: 25px 25px 25px 25px;
     font-size: 0.9rem;
     font-weight: bold;
-    padding-top: 12px;
-    padding-bottom: 0px;
-    padding-left: 0px;
-    padding-right: 0px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     width: 100%;
     max-width: 180px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.badge a{
-    color: #FFB64C;
-}
 
-.badge a:hover{
-    color: darkorange;
+.produtosHeader {
+    padding: 50px 0;
 }

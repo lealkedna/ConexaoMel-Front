@@ -59,3 +59,14 @@
     resize: none;
     padding: 16px;
 }
+
+
+.feedbackMessage {
+    color: green;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  
+  .feedbackMessage.error {
+    color: red;
+  }

@@ -12,7 +12,7 @@ export async function middleware(req:NextRequest) {
     }
 
     const token = await getCookieServer();
-    if (pathname.startsWith("/produto")){
+    if (pathname.startsWith("/perfil")){
 
         if (!token){
             return NextResponse.redirect(new URL("/", req.url));
