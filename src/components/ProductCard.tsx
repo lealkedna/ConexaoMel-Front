@@ -17,8 +17,8 @@ const ProductCard:  React.FC<ProductCardProps> = ({ nome, imagemName, descricao,
   return (
     <div className={styles.card}>
       <Image
-        src={imagemName}
-        alt={nome}
+        src={imagemName || imagemValida}
+        alt="Imagem do produto"
         width={200}
         height={200}
         className={styles.image}
