@@ -52,7 +52,7 @@ export default function Principal() {
             return (
               <ProductCard
                 key={produto.id}
-                //imagemName={imagemValida}
+                imagemName={produto.imagemName}
                 nome={produto.nome}
                 descricao={produto.descricao}
                 preco={produto.preco}
