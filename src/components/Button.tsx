@@ -4,19 +4,26 @@ import React from "react";
 import { useRouter } from "next/navigation"; 
 import styles from "@/styles/Button.module.css";
 
-const Button = ({ text, primary = false, href }) => {
+
+interface ButtonProps {
+  text: string;
+  primary?: boolean;
+  href?: string;  
+}
+
+const Button: React.FC<ButtonProps> = ({ text, primary = false, href }) => {
   const router = useRouter();
 
   const handleClick = () => {
     if (href) {
-      router.push(href);
+      router.push(href); // Redireciona com router.push
     }
   };
 
   return (
     <button
       className={primary ? styles.primary : styles.secondary}
-      onClick={handleClick}
+      onClick={handleClick} 
     >
       {text}
     </button>
