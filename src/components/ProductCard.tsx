@@ -9,14 +9,25 @@ import ModalContato from "./ModalContato";
 import {api} from '@/services/api';
 
 interface ProductCardProps {
-  idProduto: string,
+  // idProduto: string,
   nome: string;
   imagemName: string;
   descricao: string;
   preco: number;
 }
 
-const ProductCard:  React.FC<ProductCardProps> = ({ idProduto, nome, imagemName, descricao, preco }) => {
+type Vendedor = {
+  nome: string;
+  telefone: string;
+};
+
+type RespostaVendedor = {
+  vendedor: Vendedor;
+};
+
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const ProductCard:  React.FC<ProductCardProps> = ({  nome, imagemName, descricao, preco }) => {
 
   const imagemValida = imagemName ? imagemName : '/images/logo.jpeg';
   const [vendedor, setVendedor] = useState<{ nome: string; telefone: string } | null>(null);
@@ -24,7 +35,8 @@ const ProductCard:  React.FC<ProductCardProps> = ({ idProduto, nome, imagemName,
   
   const buscarVendedor = async () => {
     try {
-      const response = await api.get(`/listagem`);
+      // const response = await api.get(`/listagem`);
+      const response = await api.get<RespostaVendedor>(`/listagem`);
       setVendedor(response.data.vendedor); 
       setShowModal(true); // Abre o modal
     } catch (error) {

@@ -60,7 +60,7 @@ export default function login(){
                         Entrar
                     </button>
                 </form>
-                <p className={styles.link}>Ainda não tem Conta? <a href="/signup">Cadastre-se!</a></p>
+                <p className={styles.link}>Ainda não tem Conta? <a href="/signup" className={styles.CadastreButton}>Cadastre-se!</a></p>
             </div>
         </div>
     );

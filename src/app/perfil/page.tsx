@@ -6,17 +6,29 @@ import Header from "@/components/Header"
 import { FormProduto } from '@/components/FormProduto';
 import { api } from "@/services/api";
 import { getVendedorId } from "@/lib/cookiesClient";
+import { IoIosCloseCircleOutline } from "react-icons/io";
+
+type Produto = {
+    idProduto: string,
+    nome: string;
+    imagemName: string;
+    descricao: string;
+    preco: number;
+  };
 
 
 export default function Perfil() {
     const [isModalOpen, setIsModalOpen] = useState(false);
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const [produtos, setProdutos] = useState<any[]>([]);
 
     const fetchProdutosPerfil = async () => {
-        const vendedorId = getVendedorId(); // Pega o vendedorId do produtor logado
+        const vendedorId = getVendedorId(); 
+        console.log("vendedorId:", vendedorId); 
         try {
-            const response = await api.get(`/produtos/${vendedorId}`); // Endpoint para listar produtos do vendedor
-            setProdutos(response.data); // Atualiza o estado com os produtos
+            // const response = await api.put(`/produtos/${vendedorId}`);
+            const response = await api.put<Produto[]>(`/produtos/${vendedorId}`);
+            setProdutos(response.data);
         } catch (error) {
             console.error("Erro ao buscar produtos do produtor:", error);
         }
@@ -74,9 +86,11 @@ export default function Perfil() {
             {isModalOpen && (
                 <div className={styles.modalOverlay}>
                     <div className={styles.modalContent}>
-                        <button className={styles.closeButton} onClick={() => setIsModalOpen(false)}>
-                            ×
-                        </button>
+                        {/* <button className={styles.closeButton} onClick={() => setIsModalOpen(false)}>
+                        <IoIosCloseCircleOutline color="#f4a261"/>
+                        </button> */}
+                        <p className={styles.closeButton} onClick={() => setIsModalOpen(false)}><IoIosCloseCircleOutline color="#f4a261" size={28}/></p>
+
                         <FormProduto />
                     </div>
                 </div>
@@ -84,23 +98,3 @@ export default function Perfil() {
         </div>
     );
 }
-
-
-
-
-{/* <tr>
-                            <td>Produto 1</td>
-                            <td>Disponível</td>
-                            <td>
-                                <button className={styles.editBtn}>Editar</button>
-                                <button className={styles.deleteBtn}>Excluir</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Produto 2</td>
-                            <td>Indisponível</td>
-                            <td>
-                                <button className={styles.editBtn}>Editar</button>
-                                <button className={styles.deleteBtn}>Excluir</button>
-                            </td>
-                        </tr> */}

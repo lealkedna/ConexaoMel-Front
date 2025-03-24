@@ -68,7 +68,8 @@
 }
 
 .button:hover {
-  background-color: #F4CE14;
+  background-color: #000;
+  color: #f4a261;
 }
 
 
@@ -77,6 +78,10 @@
   text-align: center;
   font-size: 1rem;
   color: #000;
+}
+
+.FazerLogin{
+  color: #f4a261;
 }
 
 @media (min-width: 1440px) {

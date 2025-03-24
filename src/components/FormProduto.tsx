@@ -9,8 +9,11 @@ import { api } from "@/services/api";
 import { getCookieClient } from "@/lib/cookiesClient";
 import { getVendedorId } from "@/lib/cookiesClient";
 
+
+
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface FormProdutoProps {
-    fetchProdutos: () => void;  // Função para atualizar os produtos após o cadastro
+    fetchProdutos: () => void;
 }
 
 export function FormProduto() {
@@ -78,11 +81,11 @@ export function FormProduto() {
     return (
         <div>
             <form className={styles.form} action={handleCadastrar}>
-                <label className={styles.labelImage}>
+            <p className={styles.descricaoCampo}>Adicione uma imagem do seu produto (JPG ou PNG)</p>
+                <label className={styles.labelImage} >
                     <span className={styles.span}>
                         <UploadCloud size={24} color="#f4a261" />
                     </span>
-
                     <input className={styles.input} type='file' accept="image/png, image/jpeg" required onChange={handleFile} />
 
                     {previewImage && (
@@ -96,18 +99,21 @@ export function FormProduto() {
                         />
                     )}
                 </label>
+                <p className={styles.descricaoCampo}>Descreva as características do seu mel (sabor, cor, origem...)</p>
                 <textarea
                     className={`${styles.camposFormulario} ${styles.textarea}`}
                     placeholder="Dê uma descrição do seu mel"
                     name="descricao"
                     required>
                 </textarea>
+                <p className={styles.descricaoCampo}>Informe o preço (R$)</p>
                 <input
                     type="number"
                     name="preco" placeholder="Qual o preço por Litro?"
                     required
                     className={styles.camposFormulario}>
                 </input>
+                <p className={styles.descricaoCampo}>Selecione a florada do seu mel</p>
                 <select className={styles.camposFormulario} name="role">
                     <option key={1} value={1}>Aroeira</option>
                     <option>Cajueiro</option>

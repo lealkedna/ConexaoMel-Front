@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import styles from '../principal/principal.module.css'
 import Header from '@/components/Header'
 import ProductCard from '@/components/ProductCard';
+import Footer from "@/components/Footer";
 import { api } from "@/services/api";
 
 
@@ -23,8 +24,8 @@ export default function Principal() {
   // Função para buscar os produtos
   const fetchProdutos = async () => {
     try {
-      const response = await api.get("/listagem");
-      console.log("produtos: ", response.data)
+      const response = await api.get<Produto[]>("/listagem");
+      //console.log("produtos: ", response.data)
       setProdutos(response.data);
     } catch (error) {
       console.error("Erro ao buscar produtos:", error);
@@ -63,6 +64,7 @@ export default function Principal() {
           <p>Carregando produtos...</p>
         )}
       </div>
+      <Footer />
     </div>
   );
 }

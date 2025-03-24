@@ -30,6 +30,11 @@
     margin-top: 20px;
 }
 
+.buttons Button:hover{
+    background-color: #000;
+    color: #ffcc80;
+}
+
 
 
 @media (max-width: 1024px) {
