@@ -4,13 +4,28 @@ import styles from '@/styles/Produto.module.css';
 
 
 
-interface ModalProps {
+export interface ModalProps {
     isOpen: boolean;
     onClose: () => void;
 }
 
 
-export default async function Produto({ isOpen, onClose }: ModalProps) {
+// export default async function Produto({ isOpen, onClose }: ModalProps) {
+//     if (!isOpen) return null;
+
+//     return (
+//         <div className={styles.modalOverlay}>
+//             <div className={styles.modalContent}>
+//                 <button className={styles.closeButton} onClick={onClose}>×</button>
+//                 <h1 className={styles.title}>Produtor</h1>
+//                 <h2>Cadastre seu Mel</h2>
+//                 <FormProduto />
+//             </div>
+//         </div>
+//     );
+// }
+
+export default function Produto({ isOpen, onClose }: ModalProps) {
     if (!isOpen) return null;
 
     return (

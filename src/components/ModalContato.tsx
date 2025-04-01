@@ -11,12 +11,12 @@ const ModalVendedor: React.FC<ModalProps> = ({ vendedor, onClose }) => {
   if (!vendedor) return null;
 
   return (
-    <div className={styles.modalOverlay} onClick={onClose}>
-      <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+    <div  onClick={onClose}>
+      <div onClick={(e) => e.stopPropagation()}>
         <h3>Informações do Vendedor</h3>
         <p><strong>Nome:</strong> {vendedor.nome}</p>
         <p><strong>Telefone:</strong> {vendedor.telefone}</p>
-        <button className={styles.button} onClick={onClose}>Fechar</button>
+        <button onClick={onClose}>Fechar</button>
       </div>
     </div>
   );

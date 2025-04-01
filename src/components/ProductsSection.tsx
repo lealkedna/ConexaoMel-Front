@@ -36,7 +36,10 @@ const ProductsSection = () => {
       </p>
       <div className={styles.productsGrid}>
         {products.map((product, index) => (
-          <ProductCard key={index} {...product} />
+          <ProductCard nome={""} imagemName={""} descricao={""} preco={0} vendedor={{
+            name: "",
+            telefone: ""
+          }} key={index} {...product} />
         ))}
       </div>
     </section>

@@ -14,7 +14,7 @@ interface ProductCardProps {
   };
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
+
 const ProductCard: React.FC<ProductCardProps> = ({ nome, imagemName, descricao, preco, vendedor }) => {
 
   const imagemValida = imagemName ? imagemName : '/images/logo.jpeg';
@@ -29,7 +29,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ nome, imagemName, descricao, 
   return (
     <div className={styles.card}>
       <Image
-        src={imagemName || imagemValida}
+        src={imagemValida}
         alt="Imagem do produto"
         width={200}
         height={200}
