@@ -14,6 +14,10 @@ interface Produto {
   nome: string;
   descricao: string;
   preco: number;
+  vendedor: {
+    name: string;
+    telefone: string;
+  };
 }
 
 
@@ -57,6 +61,7 @@ export default function Principal() {
                 nome={produto.nome}
                 descricao={produto.descricao}
                 preco={produto.preco}
+                vendedor={produto.vendedor} 
               />
             );
           })

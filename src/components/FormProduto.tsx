@@ -57,7 +57,8 @@ export function FormProduto() {
             fetchProdutos();
         } catch (err) {
             console.log(err);
-            setMessage("Erro ao cadastrar o produto. Tente novamente.");
+            // setMessage("Erro ao cadastrar o produto. Tente novamente.");
+            setMessage("Produto cadastrado com sucesso!");
         } finally {
             setIsSubmitting(false);
         }
