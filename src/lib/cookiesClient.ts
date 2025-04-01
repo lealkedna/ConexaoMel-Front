@@ -1,4 +1,4 @@
-import { get } from "axios";
+// import { get } from "axios";
 import { getCookie } from "cookies-next";
 import {jwtDecode} from "jwt-decode";
 
@@ -18,6 +18,7 @@ export function getVendedorId(): string | null {
     }
 
     try {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const decoded: any = jwtDecode(token);
         return decoded.sub || null;
     } catch (error) {

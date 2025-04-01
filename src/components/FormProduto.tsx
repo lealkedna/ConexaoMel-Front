@@ -115,7 +115,9 @@ export function FormProduto() {
                     className={styles.camposFormulario}>
                 </input>
                 <p className={styles.descricaoCampo}>Selecione a florada do seu mel</p>
-                <select className={styles.camposFormulario} name="role">
+
+                <label htmlFor="role">Selecione o tipo de árvore:</label>
+                <select className={styles.camposFormulario} name="role" id="role" >
                     <option key={1} value={1}>Aroeira</option>
                     <option>Cajueiro</option>
                     <option>Eucalipto</option>

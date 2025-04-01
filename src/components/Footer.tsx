@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "@/styles/Footer.module.css";
-import { Phone, Mail, MapPin, Facebook, Instagram } from "lucide-react";
+import { Phone, Mail, MapPin} from "lucide-react";
 import Image from 'next/image'
 
 const Footer = () => {
