@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 export const api = axios.create({
-    baseURL: process.env.BACKEND_URL || 'http://localhost:3333',
+    baseURL: process.env.NEXT_PUBLIC_API_URL || 'https://conexao-mel.onrender.com/',
     withCredentials: true,
 });
 
