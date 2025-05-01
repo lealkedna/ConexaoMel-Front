@@ -1,41 +1,20 @@
-import React from 'react';
-import { FormProduto } from '@/components/FormProduto';
+'use client';
+import React, { useState } from 'react';
 import styles from '@/styles/Produto.module.css';
+import { ModalProduto } from '@/components/ModalProduto';
 
+export default function Produto() {
+  const [modalAberto, setModalAberto] = useState(false);
 
-
-export interface ModalProps {
-    isOpen: boolean;
-    onClose: () => void;
-}
-
-
-// export default async function Produto({ isOpen, onClose }: ModalProps) {
-//     if (!isOpen) return null;
-
-//     return (
-//         <div className={styles.modalOverlay}>
-//             <div className={styles.modalContent}>
-//                 <button className={styles.closeButton} onClick={onClose}>×</button>
-//                 <h1 className={styles.title}>Produtor</h1>
-//                 <h2>Cadastre seu Mel</h2>
-//                 <FormProduto />
-//             </div>
-//         </div>
-//     );
-// }
-
-export default function Produto({ isOpen, onClose }: ModalProps) {
-    if (!isOpen) return null;
-
-    return (
-        <div className={styles.modalOverlay}>
-            <div className={styles.modalContent}>
-                <button className={styles.closeButton} onClick={onClose}>×</button>
-                <h1 className={styles.title}>Produtor</h1>
-                <h2>Cadastre seu Mel</h2>
-                <FormProduto />
-            </div>
+  return (
+    <div className={styles.modalOverlay}>
+        <div className={styles.modalContent}>
+            <button className={styles.closeButton} onClick={() => setModalAberto(true)}>Cadastrar produto</button>
+            <h1 className={styles.title}>Produtor</h1>
+            <h2>Cadastre seu Mel</h2>
+            <ModalProduto isOpen={modalAberto} onClose={() => setModalAberto(false)} />
         </div>
-    );
+
+    </div>
+  );
 }
