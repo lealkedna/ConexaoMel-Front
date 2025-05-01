@@ -1,7 +1,15 @@
 import React from "react";
 import styles from "@/styles/HowItWorksCard.module.css";
 
-const HowItWorksCard = ({ icon, title, description }) => {
+interface HowItWorksCardProps {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+}
+
+
+
+const HowItWorksCard = ({ icon, title, description }: HowItWorksCardProps) => {
   return (
     <div className={styles.card}>
       <div className={styles.icon}>{icon}</div>
