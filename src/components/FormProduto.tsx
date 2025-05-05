@@ -117,14 +117,15 @@ export function FormProduto() {
                 <p className={styles.descricaoCampo}>Selecione a florada do seu mel</p>
 
                 <label htmlFor="role">Selecione o tipo de árvore:</label>
-                <select className={styles.camposFormulario} name="role" id="role" >
-                    <option key={1} value={1}>Aroeira</option>
-                    <option>Cajueiro</option>
-                    <option>Eucalipto</option>
-                    <option>Laranjeira</option>
-                    <option>Marmeleiro</option>
-                    <option>Silvestre</option>
+                <select className={styles.camposFormulario} name="role" id="role" required>
+                    <option value="Cajueiro">Cajueiro</option>
+                    <option key={1} value="Aroeira">Aroeira</option>
+                    <option value="Eucalipto">Eucalipto</option>
+                    <option value="Laranjeira">Laranjeira</option>
+                    <option value="Marmeleiro">Marmeleiro</option>
+                    <option value="Silvestre">Silvestre</option>
                 </select>
+
                 <ButtonCreate name="Cadastar Meu Produto" />
             </form>
             {/* Exibindo mensagem de feedback */}
