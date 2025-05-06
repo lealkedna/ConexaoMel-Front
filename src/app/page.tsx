@@ -5,6 +5,7 @@ import HeroSection from "@/components/HeroSection";
 import HeroImage from "@/components/HeroImage";
 import ProductsSection from "@/components/ProductsSection";
 import HowItWorksSection from "@/components/HowItWorksSection";
+import Floradas from "@/components/Floradas";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -20,6 +21,9 @@ export default function Home() {
 
       <div className={styles.ProductContaine}>
         <ProductsSection />
+      </div>
+      <div className={styles.ProductContaine}>
+        <Floradas />
       </div>
       <div className={styles.HowItWorksSectionContainer}>
         <HowItWorksSection />

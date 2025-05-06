@@ -1,0 +1,66 @@
+.section {
+    /* background-color: ; */
+    padding: 50px 20px;
+    text-align: center;
+    color: #201914;
+    width: 100%;
+}
+
+.badge {
+    background-color: #FFB64C;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.title {
+    font-size: 40px;
+    margin: 10px 0;
+    color: #201914;
+    font-weight: bold;
+}
+.floradas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+  }
+  
+  .elementor {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 300px;
+    background-color: #FFB64CAD; 
+    border: 1px solid #FFB64C; 
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-sizing: border-box;
+    position: relative;
+  }
+  
+  .icon {
+    position: absolute;
+    font-size: 2rem;
+  }
+  
+  .cardFlorada h3 {
+    margin-top: 2.5rem; 
+    font-size: 20px;
+    font-weight: 600;
+    text-align: left;
+    color: #201914;
+  }
+  
+  .cardFlorada p {
+    font-size: 12px;
+    color: #201914;
+    text-align: left;
+    margin-top: 0.5rem;
+    line-height: 1.5;
+  }
+  .outraCor{
+    background-color: white;
+  }
