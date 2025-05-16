@@ -5,42 +5,30 @@ import ProductCard from "@/components/ProductCard";
 const ProductsSection = () => {
   const products = [
     {
-      image: "/images/logo.jpeg",
-      title: "Mel de Laranjeira",
-      description: "Produzido por Osvaldo Silva",
-      price: "35.00",
-      estoque: 10
+      imagemName: "/images/origem.png",
+      nome: "A origem: o apicultor no campo"
     },
     {
-      image: "/images/logo.jpeg",
-      title: "Mel de Laranjeira",
-      description: "Produzido por Osvaldo Silva.",
-      price: "35.00",
-      estoque: 10
+      imagemName: "/images/produto.png",
+      nome: "O produto: mel 100% puro",
     },
     {
-      image: "/images/logo.jpeg",
-      title: "Mel de Laranjeira",
-      description: "Produzido por Osvaldo Silva",
-      price: "35.00",
-      estoque: 10
-    },
-  ];
+      imagemName: "/images/impacto.png",
+      nome: "O impacto: conexão e comunidade",
+    }
+  ];  
 
   return (
     <section className={styles.section}>
-      <span className={styles.badge}>Os Produtos</span>
+      <span className={styles.badge}>Do campo pra sua casa</span>
       <h2 className={styles.title}>Uma nova forma de comercializar mel</h2>
       <p className={styles.subtitle}>
-        Pequenos apicultores lutam contra preços baixos e a dependência de intermediários. Nós mudamos isso com uma plataforma digital que conecta diretamente produtores e consumidores.
+        Compre direto de quem produz, valorize o trabalho artesanal e leve mel puro, natural, saboroso para sua mesa. Ao comprar aqui, você fortalece a apicultura familiar.
       </p>
       <div className={styles.productsGrid}>
         {products.map((product, index) => (
-          <ProductCard nome={""} imagemName={""} descricao={""} preco={0} vendedor={{
-            name: "",
-            telefone: ""
-          }} key={index} {...product} />
-        ))}
+            <ProductCard key={index} {...product} />
+      ))}
       </div>
     </section>
   );

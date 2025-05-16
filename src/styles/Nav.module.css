@@ -45,6 +45,17 @@
 
 }
 
+.menu_responsivo{
+    color: #201914;
+    background-color: #FFB64C;
+    font-size: 50px;
+    cursor: pointer;
+    display: none;
+}
+.menu_responsivo:hover{
+    background-color: #201914;
+    color: #FFB64C;
+}
 
 @media (max-width: 768px) {
     .containeNav {
@@ -63,4 +74,8 @@
         font-size: 1.2rem; 
         padding: 8px;
     }
+    /* .menu_responsivo{
+        
+    } */
+
 }
