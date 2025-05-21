@@ -1,14 +1,14 @@
 .containeNav{
-    width: 400px;
-    height: 85px;
+    display: flex;
+    align-items: center;
+    position: relative;
 }
-
 .menu{
     display: flex;
     justify-content: space-around;
     list-style: none;
-
 }
+
 .containeNav {
     width: 100%;
     max-width: 400px; 
@@ -16,7 +16,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10px;
+    padding: relative;
     border-radius: 10px;
 }
 
@@ -74,8 +74,12 @@
         font-size: 1.2rem; 
         padding: 8px;
     }
-    /* .menu_responsivo{
+    .menu_responsivo{
         
-    } */
+    } 
 
-}
+} 
+  
+
+
+

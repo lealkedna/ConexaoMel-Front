@@ -3,20 +3,20 @@ import styles from "@/styles/ProductsSection.module.css";
 import ProductCard from "@/components/ProductCard";
 
 const ProductsSection = () => {
-  const products = [
-    {
-      imagemName: "/images/origem.png",
-      nome: "A origem: o apicultor no campo"
-    },
-    {
-      imagemName: "/images/produto.png",
-      nome: "O produto: mel 100% puro",
-    },
-    {
-      imagemName: "/images/impacto.png",
-      nome: "O impacto: conexão e comunidade",
-    }
-  ];  
+  // const products = [
+  //   {
+  //     imagemName: "/images/origem.png",
+  //     nome: "A origem: o apicultor no campo"
+  //   },
+  //   {
+  //     imagemName: "/images/produto.png",
+  //     nome: "O produto: mel 100% puro",
+  //   },
+  //   {
+  //     imagemName: "/images/impacto.png",
+  //     nome: "O impacto: conexão e comunidade",
+  //   }
+  // ];  
 
   return (
     <section className={styles.section}>
@@ -25,11 +25,14 @@ const ProductsSection = () => {
       <p className={styles.subtitle}>
         Compre direto de quem produz, valorize o trabalho artesanal e leve mel puro, natural, saboroso para sua mesa. Ao comprar aqui, você fortalece a apicultura familiar.
       </p>
-      <div className={styles.productsGrid}>
+      {/* <div className={styles.productsGrid}>
         {products.map((product, index) => (
-            <ProductCard key={index} {...product} />
+            <ProductCard idProduto={""} descricao={""} preco={0} vendedor={{
+            name: "",
+            telefone: ""
+          }} key={index} {...product} />
       ))}
-      </div>
+      </div> */}
     </section>
   );
 };
