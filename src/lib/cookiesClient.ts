@@ -2,7 +2,7 @@
 import { getCookie } from "cookies-next";
 import {jwtDecode} from "jwt-decode";
 
-export function getCookieClient(){
+export function getCookieClient(p0: string){
     const token = getCookie("signin");
     return token;
 }

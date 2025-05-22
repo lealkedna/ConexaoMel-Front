@@ -2,11 +2,13 @@
 
 import React, { useState, useEffect } from "react";
 import styles from "../perfil/Perfil.module.css";
-import Header from "@/components/Header"
+import Header from "@/components/Header";
+import Sidebar from "@/components/SlideBar";
 import { FormProduto } from '@/components/FormProduto';
 import { api } from "@/services/api";
 import { getVendedorId } from "@/lib/cookiesClient";
 import { IoIosCloseCircleOutline } from "react-icons/io";
+
 
 type Produto = {
     idProduto: string,
@@ -14,20 +16,30 @@ type Produto = {
     imagemName: string;
     descricao: string;
     preco: number;
-  };
+};
+
+type Produtor = {
+    id: string,
+    nome: string;
+    email: string;
+};
 
 
 export default function Perfil() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const [produtos, setProdutos] = useState<any[]>([]);
+    const [produtor, setProdutor] = useState<{ name: string } | null>(null);
+
+
+    const [view, setView] = useState<'cadastrar' | 'ver'>('cadastrar');
 
     const fetchProdutosPerfil = async () => {
         const vendedorId = getVendedorId(); 
         console.log("vendedorId:", vendedorId); 
         try {
             // const response = await api.put(`/produtos/${vendedorId}`);
-            const response = await api.put<Produto[]>(`/produtos/${vendedorId}`);
+            const response = await api.get<Produtor[]>(`/me`);
             setProdutos(response.data);
         } catch (error) {
             console.error("Erro ao buscar produtos do produtor:", error);
@@ -40,8 +52,16 @@ export default function Perfil() {
     return (
         <div className={styles.perfilContainer}>
             <Header />
+
+            {/* <div className={styles.container}>
+                <Sidebar onSelect={setView} />
+                <main className={styles.content}>
+                    {view === 'cadastrar' ? <FormProduto /> : <FormProduto />}
+                </main>
+            </div>
+             */}
             <div className={styles.profileCard}>
-                <h2 className={styles.profileName}>Nome do Produtor</h2>
+                <h2 className={styles.profileName}>{produtor ? `Olá, ${produtor.name}` : "Carregando..."}</h2>
                 <p className={styles.profileDescription}>
                     Breve descrição sobre o produtor e seus produtos.
                 </p>
