@@ -1,0 +1,45 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { api } from "@/services/api";
+
+type Produto = {
+  id: string;
+  preco: number;
+  imagemName: string;
+  descricao: string;
+};
+
+export default function VisualizacaoProducts() {
+  const [produtos, setProdutos] = useState<Produto[]>([]);
+
+  useEffect(() => {
+    const fetchMeusProdutos = async () => {
+      try {
+        const response = await api.get<Produto[]>("/me/produtos");
+        setProdutos(response.data);
+      } catch (error) {
+        console.error("Erro ao buscar produtos do produtor:", error);
+      }
+    };
+
+    fetchMeusProdutos();
+  }, []);
+
+  return (
+    <div>
+      <h2>Meus Produtos</h2>
+      {produtos.length === 0 ? (
+        <p>Nenhum produto cadastrado.</p>
+      ) : (
+        <ul>
+          {produtos.map((produto) => (
+            <li key={produto.id}>
+             {produto.imagemName} — R$ {produto.preco}
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+}
