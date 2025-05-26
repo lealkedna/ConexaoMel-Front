@@ -3,9 +3,13 @@
 import React, { useState, useEffect } from "react";
 import styles from "../perfil/Perfil.module.css";
 import Header from "@/components/Header";
+import SideBar from "@/components/SideBar";
 import { FormProduto } from '@/components/FormProduto';
 import { api } from "@/services/api";
 import { IoIosCloseCircleOutline } from "react-icons/io";
+import { IoIosLogOut } from "react-icons/io";
+import { deleteCookie } from "cookies-next";
+import { useRouter } from "next/navigation";
 
 
 type Produtor = {
@@ -16,6 +20,7 @@ type Produtor = {
 
 
 export default function Perfil() {
+    const router = useRouter();
     const [isModalOpen, setIsModalOpen] = useState(false);
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const [produtos, setProdutos] = useState<any[]>([]);
@@ -38,57 +43,15 @@ export default function Perfil() {
         fetchProdutosPerfil();
     }, []);
 
+    async function handleLougot() {
+        deleteCookie("signin", {path: "/"});
+
+        router.replace('/');
+    }
+
     return (
         <div className={styles.perfilContainer}>
             <Header />
-
-            {/* <div className={styles.container}>
-                <Sidebar onSelect={setView} />
-                <main className={styles.content}>
-                    {view === 'cadastrar' ? <FormProduto /> : <FormProduto />}
-                </main>
-            </div>
-             */}
-            <div className={styles.profileCard}>
-                <h2 className={styles.profileName}>{produtor ? `Olá, ${produtor.name}` : "Carregando..."}</h2>
-                <p className={styles.profileDescription}>
-                    Breve descrição sobre o produtor e seus produtos.
-                </p>
-            
-            </div>
-
-
-            <div className={styles.productsCard}>
-                <h3>Produtos Cadastrados</h3>
-                <table className={styles.productsTable}>
-                    <thead>
-                        <tr>
-                            <th>Nome</th>
-                            <th>Status</th>
-                            <th>Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {produtos.length > 0 ? (
-                            produtos.map((produto) => (
-                                <tr key={produto.id}>
-                                    <td>{produto.nome}</td>
-                                    <td>{produto.status}</td>
-                                    <td>
-                                        <button className={styles.editBtn}>Editar</button>
-                                        <button className={styles.deleteBtn}>Excluir</button>
-                                    </td>
-                                </tr>
-                            ))
-                        ) : (
-                            <tr>
-                                <td colSpan={3}>Nenhum produto cadastrado.</td>
-                            </tr>
-                        )}
-
-                    </tbody>
-                </table>
-            </div>
 
             <div className={styles.buttonContainer}>
                 <button className={styles.addProductBtn} onClick={() => setIsModalOpen(true)} >Cadastrar Novo Produto</button>
@@ -105,6 +68,7 @@ export default function Perfil() {
                     </div>
                 </div>
             )}
+            <SideBar/>
         </div>
     );
 }

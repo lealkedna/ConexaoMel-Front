@@ -73,6 +73,16 @@
     color: white;
 }
 
+.bnt{
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    
+}
+:hover.bnt{
+    transform: scale(1.2);
+}
+
 /* Botões de ação */
 .editBtn, .deleteBtn {
     border: none;

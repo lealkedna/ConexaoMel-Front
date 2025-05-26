@@ -1,0 +1,72 @@
+// components/Sidebar.tsx
+import React, { useState, useEffect } from "react";
+import styles from '@/styles/SideBar.module.css';
+import { IoIosAddCircle } from "react-icons/io";
+import { IoEye } from "react-icons/io5";
+import { IoIosLogOut } from "react-icons/io";
+import { deleteCookie } from "cookies-next";
+import { useRouter } from 'next/navigation';
+import { api } from "@/services/api";
+
+type Produtor = {
+    id: string,
+    name: string;
+    email: string;
+};
+
+export default function Sidebar() {
+  const router = useRouter();
+  const [produtor, setProdutor] = useState<Produtor | null>(null);
+
+  async function handleLougot() {
+          deleteCookie("signin", {path: "/"});
+  
+          router.replace('/');
+      }
+
+  const fetchProdutosPerfil = async () => {
+          try {
+              const response = await api.get<Produtor>(`/me`);
+              setProdutor(response.data);
+              console.log(response.data);
+          } catch (error) {
+              console.error("Erro ao buscar dados do produtor", error);
+          }
+      };
+      useEffect(() => {
+          fetchProdutosPerfil();
+      }, []);
+  
+
+  return (
+      <aside className={styles.sidebar}>
+        <header className={styles.title}>
+          <h1 className={styles.sidebar_header}>{produtor ? `Olá, ${produtor.name}` : "Carregando..."}</h1>
+        </header>
+        <nav className={styles.nav}>
+          <button className={styles.bnt}>
+            <span className={styles.span}>
+              <IoIosAddCircle size={30}/>
+              <span >Cadastrar produto</span>
+            </span>
+          </button>
+          <button className={styles.bnt}>
+            <span className={styles.span}>
+              <IoEye size={30}/>
+              <span>Meus produtos</span>
+            </span>
+          </button>
+
+          <form action={handleLougot}>
+                <button type="submit" className={styles.bnt}>
+                  <span className={styles.span}>
+                      <IoIosLogOut size={30} color="red"/>
+                      {/* TODO: colocar span sair em vermelho */}
+                    <span>Sair</span>
+                  </span>
+                </button>
+          </form>
+          </nav>
+      </aside>
+  );
+}
