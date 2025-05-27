@@ -20,12 +20,16 @@
 }
 
 .bnt{
-  background: transparent;
+  /* background: transparent; */
   height: 60px;
   border: 0;
   cursor: pointer;
   text-align: left;
   padding: 0;
+  background: #f39c12;
+  color: white;
+  border-radius: 5px;
+
 }
 .span{
   display: inline-flex;
@@ -42,6 +46,7 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  gap: 12px;
 }
 
 @media (width < 920px){

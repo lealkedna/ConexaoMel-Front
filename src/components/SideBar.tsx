@@ -44,13 +44,13 @@ export default function Sidebar() {
           <h1 className={styles.sidebar_header}>{produtor ? `Olá, ${produtor.name}` : "Carregando..."}</h1>
         </header>
         <nav className={styles.nav}>
-          <button className={styles.bnt}>
+          <button className={styles.bnt} onClick={() => router.push('/perfil?view=cadastrar')}>
             <span className={styles.span}>
               <IoIosAddCircle size={30}/>
               <span >Cadastrar produto</span>
             </span>
           </button>
-          <button className={styles.bnt}>
+          <button className={styles.bnt} onClick={() => router.push('/perfil?view=meusprodutos')}>
             <span className={styles.span}>
               <IoEye size={30}/>
               <span>Meus produtos</span>

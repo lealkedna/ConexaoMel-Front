@@ -10,13 +10,15 @@ type Produto = {
   descricao: string;
 };
 
+// TODO: Erro ao renderizar os produtos do produtor de mel
+
 export default function VisualizacaoProducts() {
-  const [produtos, setProdutos] = useState<Produto[]>([]);
+  const [produtos, setProdutos] = useState<Produto | null>(null);
 
   useEffect(() => {
     const fetchMeusProdutos = async () => {
       try {
-        const response = await api.get<Produto[]>("/me/produtos");
+        const response = await api.get<Produto>("/me/produtos");
         setProdutos(response.data);
       } catch (error) {
         console.error("Erro ao buscar produtos do produtor:", error);
@@ -28,7 +30,9 @@ export default function VisualizacaoProducts() {
 
   return (
     <div>
-      <h2>Meus Produtos</h2>
+      {/* <h2>Meus Produtos</h2> */}
+      {/* <p>`${produtos?.descricao}, ${produtos?.preco}`</p> */}
+      {/* <h2>Meus Produtos</h2>
       {produtos.length === 0 ? (
         <p>Nenhum produto cadastrado.</p>
       ) : (
@@ -39,7 +43,7 @@ export default function VisualizacaoProducts() {
             </li>
           ))}
         </ul>
-      )}
+      )} */}
     </div>
   );
 }
