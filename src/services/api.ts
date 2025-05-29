@@ -9,7 +9,7 @@ export const api = axios.create({
 
 // Lê o cookie 'signin' e envia como Authorization
 api.interceptors.request.use((config) => {
-  const token = getCookieClient("signin"); 
+  const token = getCookieClient(); 
   if (token && config.headers) {
     config.headers.Authorization = `Bearer ${token}`;
   }
