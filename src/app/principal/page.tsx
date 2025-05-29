@@ -57,6 +57,7 @@ export default function Principal() {
             return (
               <ProductCard
                 key={produto.id}
+                idProduto={produto.id}
                 imagemName={produto.imagemName}
                 nome={produto.nome}
                 descricao={produto.descricao}
