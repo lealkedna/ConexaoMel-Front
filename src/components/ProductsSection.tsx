@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "@/styles/ProductsSection.module.css";
-import ProductCard from "@/components/ProductCard";
 
 const ProductsSection = () => {
   // const products = [

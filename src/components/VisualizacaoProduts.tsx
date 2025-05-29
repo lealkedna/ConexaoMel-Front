@@ -13,6 +13,7 @@ type Produto = {
 // TODO: Erro ao renderizar os produtos do produtor de mel
 
 export default function VisualizacaoProducts() {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [produtos, setProdutos] = useState<Produto | null>(null);
 
   useEffect(() => {

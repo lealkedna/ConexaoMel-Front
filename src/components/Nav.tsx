@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import styles from "@/styles/Nav.module.css"
 import { IoMenuOutline, IoClose } from "react-icons/io5";
+import Link from "next/link";
 
 const Nav = () =>{
     const [menuAberto, setMenuAberto] = useState(false);
@@ -23,13 +24,13 @@ const Nav = () =>{
             
         <ul className={`${styles.menu} ${menuAberto ? styles.menuAberto : ""}`}>
             <li className={styles.menuItem}>
-            <a href="/">Página inicial</a>
+            <Link href="/">Página inicial</Link>
             </li>
             <li className={styles.menuItem}>
-            <a href="/principal">Produtos</a>
+            <Link href="/principal">Produtos</Link>
             </li>
             <li className={styles.menuItem}>
-            <a href="/logar">Login</a>
+            <Link href="/logar">Login</Link>
             </li>
         </ul>
             

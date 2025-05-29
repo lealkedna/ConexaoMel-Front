@@ -1,23 +1,21 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styles from "../perfil/Perfil.module.css";
 import Header from "@/components/Header";
 import SideBar from "@/components/SideBar";
 import { FormProduto } from '@/components/FormProduto';
 import VisualizacaoProducts from "@/components/VisualizacaoProduts";
 import Floradas from "@/components/Floradas";
-import { IoIosCloseCircleOutline } from "react-icons/io";
-import { useRouter, useSearchParams } from 'next/navigation'
+import {  useSearchParams } from 'next/navigation'
 
 
 export default function Perfil() {
-    const router = useRouter();
     const searchParams = useSearchParams();
     const view = searchParams.get('view');
     
 
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    // const [isModalOpen, setIsModalOpen] = useState(false);
 
 
   const renderContent = () => {
