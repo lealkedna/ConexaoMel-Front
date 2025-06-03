@@ -1,8 +1,10 @@
 // import Image from 'next/image';
 // import Link from 'next/link';
+
 import styles from '@/app/signup/Signup.module.css';
 import { api } from "@/services/api";
 import { redirect } from 'next/navigation';
+import { toast } from "sonner";
 // import axios from 'axios';
 
 export default function Signup() {
@@ -31,9 +33,11 @@ export default function Signup() {
                     'Content-Type': 'application/json'
                 }
             });
+            toast.success("Perfil cadastrado");
 
         } catch (err) {
-            console.log('error');
+            // console.log('error');
+            toast.warning("Erro ao cadastrar o perfil");
             console.log(err)
 
         }

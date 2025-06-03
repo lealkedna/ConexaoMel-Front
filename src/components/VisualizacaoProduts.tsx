@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react";
 import { api } from "@/services/api";
+import Image from "next/image";
+import styles from "@/styles/VisualizacaoProduts.module.css";
 
 type Produto = {
   id: string;
@@ -10,16 +12,14 @@ type Produto = {
   descricao: string;
 };
 
-// TODO: Erro ao renderizar os produtos do produtor de mel
-
 export default function VisualizacaoProducts() {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [produtos, setProdutos] = useState<Produto | null>(null);
+  const [produtos, setProdutos] = useState<Produto[]>([]);
 
   useEffect(() => {
-    const fetchMeusProdutos = async () => {
+    async function fetchMeusProdutos() {
       try {
-        const response = await api.get<Produto>("/me/produtos");
+        const response = await api.get<Produto[]>("/me/meusprodutos");
         setProdutos(response.data);
       } catch (error) {
         console.error("Erro ao buscar produtos do produtor:", error);
@@ -29,22 +29,37 @@ export default function VisualizacaoProducts() {
     fetchMeusProdutos();
   }, []);
 
+   async function handleDelete(id: string) {
+      try {
+        await api.delete(`/api/rota/${id}`);
+        setProdutos((prev) => prev.filter((produto) => produto.id !== id));
+      } catch (error) {
+        console.error('Erro ao excluir:', error);
+      }
+  };
+
   return (
-    <div>
-      {/* <h2>Meus Produtos</h2> */}
-      {/* <p>`${produtos?.descricao}, ${produtos?.preco}`</p> */}
-      {/* <h2>Meus Produtos</h2>
-      {produtos.length === 0 ? (
-        <p>Nenhum produto cadastrado.</p>
-      ) : (
-        <ul>
-          {produtos.map((produto) => (
-            <li key={produto.id}>
-             {produto.imagemName} — R$ {produto.preco}
-            </li>
-          ))}
-        </ul>
-      )} */}
+    <div className={styles.main}>
+      <div className={styles.title}>Meus produtos</div>
+      <div className={styles.content} >
+        {produtos.map(({ id, preco, imagemName, descricao }) => (
+        <div className={styles.list} key={id} >
+          <Image 
+            src={imagemName} 
+            className={styles.previewImage}
+            alt="produto" 
+            width={100}
+            height={100}
+            quality={100}
+            priority={true}
+            />
+            <div className={styles.info}> 
+              <h3 className={styles.descricao} >{descricao}</h3>
+              <p className={styles.preco} >Preço: R${preco}</p>
+            </div>
+        </div>
+      ))}
+      </div>
     </div>
   );
 }

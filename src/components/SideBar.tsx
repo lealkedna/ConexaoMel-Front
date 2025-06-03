@@ -1,4 +1,5 @@
 // components/Sidebar.tsx
+"use client"
 import React, { useState, useEffect } from "react";
 import styles from '@/styles/SideBar.module.css';
 import { IoIosAddCircle } from "react-icons/io";
@@ -7,6 +8,7 @@ import { IoIosLogOut } from "react-icons/io";
 import { deleteCookie } from "cookies-next";
 import { useRouter } from 'next/navigation';
 import { api } from "@/services/api";
+import { toast } from "sonner";
 
 type Produtor = {
     id: string,
@@ -20,7 +22,7 @@ export default function Sidebar() {
 
   async function handleLougot() {
           deleteCookie("signin", {path: "/"});
-  
+          toast.success("Você saiu da plataforma. Até a próxima !")
           router.replace('/');
       }
 
@@ -30,6 +32,7 @@ export default function Sidebar() {
               setProdutor(response.data);
               console.log(response.data);
           } catch (error) {
+            toast.warning("Erro ao buscar dados do produtor");
               console.error("Erro ao buscar dados do produtor", error);
           }
       };

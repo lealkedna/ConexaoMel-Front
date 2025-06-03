@@ -5,6 +5,22 @@
     padding: 20px;
     font-family: Arial, sans-serif;
 }
+/* Sidebar  */
+
+.sidedisplay{
+    display: flex;
+    /* border: solid 1px #FFB64C; */
+    background-color: #FFB64C36;
+    border-radius: 25px 25px 25px 25px;
+}
+.sidecanto{
+    /* border: solid #f4d03f; */
+    background-color: #FFB64CAD;
+    border-radius: 25px 25px 25px 25px;
+}
+/* .content{
+    border: solid #e74c3c;
+} */
 
 /* Cartão do perfil */
 .profileCard {

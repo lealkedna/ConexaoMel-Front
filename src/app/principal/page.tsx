@@ -6,6 +6,7 @@ import Header from '@/components/Header'
 import ProductCard from '@/components/ProductCard';
 import Footer from "@/components/Footer";
 import { api } from "@/services/api";
+import { toast } from "sonner";
 
 
 interface Produto {
@@ -30,8 +31,10 @@ export default function Principal() {
     try {
       const response = await api.get<Produto[]>("/listagem");
       //console.log("produtos: ", response.data)
+      toast.success("Produtos listados")
       setProdutos(response.data);
     } catch (error) {
+      toast.warning("Erro ao buscar pelos Produtos");
       console.error("Erro ao buscar produtos:", error);
     }
   };

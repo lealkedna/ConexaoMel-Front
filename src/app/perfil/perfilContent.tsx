@@ -28,8 +28,12 @@ export default function PerfilContent() {
   return (
     <div className={styles.perfilContainer}>
       <Header />
-      <SideBar />
-      <div className="content">{renderContent()}</div>
+      <div className={styles.sidedisplay}>
+        <div className={styles.sidecanto}>
+          <SideBar />
+        </div>
+        <div className={styles.content}>{renderContent()}</div>
+      </div>
     </div>
   );
 }

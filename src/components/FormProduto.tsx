@@ -8,6 +8,7 @@ import { ButtonCreate } from "./ButtonCreate";
 import { api } from "@/services/api";
 import { getCookieClient } from "@/lib/cookiesClient";
 import { getVendedorId } from "@/lib/cookiesClient";
+import { toast } from "sonner";
 
 
 
@@ -30,6 +31,7 @@ export function FormProduto() {
         const vendedorId = getVendedorId();
 
         if (!descricao || !preco || !role || !image || !vendedorId) {
+            toast.warning("Preencha todos os campos corretamente");
             setMessage("Preencha todos os campos corretamente.");
             return;
         }
@@ -52,7 +54,7 @@ export function FormProduto() {
                     Authorization: `Bearer ${token}`,
                 },
             });
-
+            toast.success("Produto cadastrado com sucesso!")
             setMessage("Produto cadastrado com sucesso!");
             fetchProdutos();
         } catch (err) {
@@ -70,6 +72,7 @@ export function FormProduto() {
             const image = e.target.files[0];
 
             if (image.type !== "image/jpeg" && image.type !== "image/png") {
+                toast.warning("Formato de Imagem invalido só aceitamos png ou jpeg");
                 console.log("Formato de Imagem invalido só aceitamos png ou jpeg");
                 return;
             };
