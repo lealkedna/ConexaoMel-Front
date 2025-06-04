@@ -13,7 +13,6 @@ type Produto = {
 };
 
 export default function VisualizacaoProducts() {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [produtos, setProdutos] = useState<Produto[]>([]);
 
   useEffect(() => {
@@ -29,14 +28,14 @@ export default function VisualizacaoProducts() {
     fetchMeusProdutos();
   }, []);
 
-   async function handleDelete(id: string) {
-      try {
-        await api.delete(`/api/rota/${id}`);
-        setProdutos((prev) => prev.filter((produto) => produto.id !== id));
-      } catch (error) {
-        console.error('Erro ao excluir:', error);
-      }
-  };
+  //  async function handleDelete(id: string) {
+  //     try {
+  //       await api.delete(`/api/rota/${id}`);
+  //       setProdutos((prev) => prev.filter((produto) => produto.id !== id));
+  //     } catch (error) {
+  //       console.error('Erro ao excluir:', error);
+  //     }
+  // };
 
   return (
     <div className={styles.main}>
