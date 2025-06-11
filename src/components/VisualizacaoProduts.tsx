@@ -10,6 +10,7 @@ import { toast } from "sonner";
 import Swal from 'sweetalert2';
 import withReactContent from "sweetalert2-react-content";
 
+import { ModalEdit } from "./ModalEdit";
 const MySwal = withReactContent(Swal);
 
 
@@ -61,6 +62,7 @@ export default function VisualizacaoProducts() {
   };
 
   return (
+    <> 
     <div className={styles.main}>
       <div className={styles.title}>Meus produtos</div>
       <div className={styles.content} >
@@ -85,5 +87,7 @@ export default function VisualizacaoProducts() {
       ))}
       </div>
     </div>
+      <ModalEdit/>
+   </>
   );
 }

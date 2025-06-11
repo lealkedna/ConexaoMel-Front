@@ -1,0 +1,36 @@
+.dialogContainer{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    /* background: rgb(0, 0, 0, 0.50); */
+    background: #FFB64CAD;
+    z-index: 999;
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 16px;
+    backdrop-filter: blur(10px);
+}
+.dialogContent{
+    /* background-color: var(--dark-700); */
+    background-color: #FFB64CAD;
+    margin: auto;
+    padding: 16px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+
+}
+.subTitle{
+    margin-bottom: 16px;
+    margin-top: 8px;
+}
+.dialogBack{
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+}
