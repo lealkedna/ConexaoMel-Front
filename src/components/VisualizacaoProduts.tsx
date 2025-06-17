@@ -23,7 +23,7 @@ type Produto = {
 };
 
 export default function VisualizacaoProducts() {
-  const { isOpen, onRequestOpen, onRequestClose } = use(EditContext);
+  const { isOpen, onRequestOpen } = use(EditContext);
   const [produtos, setProdutos] = useState<Produto[]>([]);
   const [produtoSelecionado, setProdutoSelecionado] = useState<Produto | null>(null);
 
@@ -62,10 +62,6 @@ export default function VisualizacaoProducts() {
         console.error('Erro ao excluir:', error);
         toast.warning("Erro ao tentar excluir produto");
       }
-  };
-
-  function handleEdit() {
-    onRequestOpen();  
   };
 
   return (
