@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, use} from "react";
 import { api } from "@/services/api";
 import Image from "next/image";
 import styles from "@/styles/VisualizacaoProduts.module.css";
@@ -9,6 +9,7 @@ import { BiSolidEditAlt } from "react-icons/bi";
 import { toast } from "sonner";
 import Swal from 'sweetalert2';
 import withReactContent from "sweetalert2-react-content";
+import { EditContext } from "@/providers/edit";
 
 import { ModalEdit } from "./ModalEdit";
 const MySwal = withReactContent(Swal);
@@ -22,7 +23,9 @@ type Produto = {
 };
 
 export default function VisualizacaoProducts() {
+  const { isOpen, onRequestOpen, onRequestClose } = use(EditContext);
   const [produtos, setProdutos] = useState<Produto[]>([]);
+  const [produtoSelecionado, setProdutoSelecionado] = useState<Produto | null>(null);
 
   useEffect(() => {
     async function fetchMeusProdutos() {
@@ -61,6 +64,10 @@ export default function VisualizacaoProducts() {
       }
   };
 
+  function handleEdit() {
+    onRequestOpen();  
+  };
+
   return (
     <> 
     <div className={styles.main}>
@@ -82,12 +89,20 @@ export default function VisualizacaoProducts() {
               <p className={styles.preco} >Preço: R${preco}</p>
             </div>
             <button onClick={() => handleDelete(id)}><MdDeleteForever size={25} color="#FFB64CAD"/></button>
-            <button><BiSolidEditAlt size={25} color="#FFB64CAD"/></button>
+
+            <button onClick={() => {
+                  setProdutoSelecionado({ id, preco, imagemName, descricao });
+                  onRequestOpen();
+                }}>
+                  <BiSolidEditAlt size={25} color="#FFB64CAD"/>
+            </button>
         </div>
       ))}
       </div>
     </div>
-      <ModalEdit/>
+      {isOpen && produtoSelecionado && (
+        <ModalEdit produto={produtoSelecionado} />
+      )}
    </>
   );
 }

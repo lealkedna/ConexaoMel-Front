@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import {Quicksand } from 'next/font/google'
 import "./globals.css";
 import { Toaster } from "sonner";
+import { EditProvider } from "@/providers/edit";
 
 const quicksand = Quicksand({
   variable: "--font-quicksand-sans",
@@ -24,19 +25,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={quicksand.className}>
-        {children}
-        <Toaster 
-          position="bottom-right"
-          toastOptions={{ 
-            style:{
-              backgroundColor: "#FFB64CAD",
-              color: "#f1f1f1",
-              borderColor: "rgba(255, 255, 255, 0.5)"
-            }}
-          }
-        />
-      </body>
+      <EditProvider>
+        <body className={quicksand.className}>
+          {children}
+          <Toaster 
+            position="bottom-right"
+            toastOptions={{ 
+              style:{
+                backgroundColor: "#FFB64CAD",
+                color: "#f1f1f1",
+                borderColor: "rgba(255, 255, 255, 0.5)"
+              }}
+            }
+          />
+        </body>
+      </EditProvider>
     </html>
   );
 }
