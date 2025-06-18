@@ -12,9 +12,9 @@ import { toast } from "sonner";
 interface Produto {
   id: string;
   imagemName: string;
-  nome: string;
   descricao: string;
   preco: number;
+  role: string;
   vendedor: {
     name: string;
     telefone: string;
@@ -62,9 +62,9 @@ export default function Principal() {
                 key={produto.id}
                 idProduto={produto.id}
                 imagemName={produto.imagemName}
-                nome={produto.nome}
                 descricao={produto.descricao}
                 preco={produto.preco}
+                role={produto.role}
                 vendedor={produto.vendedor} 
               />
             );

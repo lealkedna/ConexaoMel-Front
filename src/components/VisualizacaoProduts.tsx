@@ -20,6 +20,7 @@ type Produto = {
   preco: number;
   imagemName: string;
   descricao: string;
+  role: string;
 };
 
 export default function VisualizacaoProducts() {
@@ -69,7 +70,7 @@ export default function VisualizacaoProducts() {
     <div className={styles.main}>
       <div className={styles.title}>Meus produtos</div>
       <div className={styles.content} >
-        {produtos.map(({ id, preco, imagemName, descricao }) => (
+        {produtos.map(({ id, preco, imagemName, descricao, role }) => (
         <div className={styles.list} key={id} >
           <Image 
             src={imagemName} 
@@ -83,11 +84,12 @@ export default function VisualizacaoProducts() {
             <div className={styles.info}> 
               <h3 className={styles.descricao} >{descricao}</h3>
               <p className={styles.preco} >Preço: R${preco}</p>
+              <p className={styles.preco}>Florada {role}</p> 
             </div>
             <button onClick={() => handleDelete(id)}><MdDeleteForever size={25} color="#FFB64CAD"/></button>
 
             <button onClick={() => {
-                  setProdutoSelecionado({ id, preco, imagemName, descricao });
+                  setProdutoSelecionado({ id, preco, imagemName, descricao, role});
                   onRequestOpen();
                 }}>
                   <BiSolidEditAlt size={25} color="#FFB64CAD"/>

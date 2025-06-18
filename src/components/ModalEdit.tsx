@@ -17,6 +17,7 @@ type Produto = {
   descricao: string;
   preco: number;
   imagemName?: string;
+  role: string;
 };
 
 interface ModalEditProps {
@@ -32,6 +33,7 @@ export function ModalEdit({ produto }: ModalEditProps){
     const [preco, setPreco] = useState(produto.preco);
     const [previewImage, setPreviewImage] = useState("");
     const [image, setImage] = useState<File>();
+    const [role, setRole] = useState(produto.role);
 
 
     async function handleEditar(e: React.FormEvent) { 
@@ -42,6 +44,7 @@ export function ModalEdit({ produto }: ModalEditProps){
             const formData = new FormData();
             formData.append("descricao", descricao);
             formData.append("preco", String(preco));
+            formData.append("role", role);
             
             if (image) {
             formData.append("file", image); 
@@ -95,7 +98,7 @@ export function ModalEdit({ produto }: ModalEditProps){
                         <p className={styles.descricaoCampo}>Adicione uma imagem do seu produto (JPG ou PNG)</p>
                             <label className={styles.labelImage} >
                                 <span className={styles.span}>
-                                    <UploadCloud size={24} color="#f4a261" />
+                                    <UploadCloud size={24} color="#2A1E17" />
                                 </span>
                                 <input className={styles.input} name="file" type='file' accept="image/png, image/jpeg" onChange={handleFile} />
 
@@ -131,7 +134,12 @@ export function ModalEdit({ produto }: ModalEditProps){
                             <p className={styles.descricaoCampo}>Selecione a florada do seu mel</p>
 
                             <label htmlFor="role">Selecione o tipo de árvore:</label>
-                            <select className={styles.camposFormulario} name="role" id="role" required>
+                            <select className={styles.camposFormulario} 
+                                    name="role" id="role" 
+                                    required 
+                                    value={role}  
+                                    onChange={(e) => setRole(e.target.value)}>
+                    
                                 <option value="Cajueiro">Cajueiro</option>
                                 <option key={1} value="Aroeira">Aroeira</option>
                                 <option value="Eucalipto">Eucalipto</option>
