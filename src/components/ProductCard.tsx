@@ -40,7 +40,6 @@ const ProductCard: React.FC<ProductCardProps> = ({ imagemName, descricao, preco,
         className={styles.image}
       />
       <button type="button" className={styles.apicultor}>Por {vendedor.name}</button>
-      <p>{vendedor.telefone}</p>
       <h3 className={styles.title}>Mel da florada {role}</h3>
       <p className={styles.description}>{descricao}</p>
       <div className={styles.footer}>
