@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
+  min-height: 80vh;
   padding: 16px;
 }
 
@@ -53,7 +53,14 @@
   color: #000;
 }
 
-
+.checkboxLabel{
+  display: flex;
+  gap: 10px;
+  font-size: 0.9rem;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 20px;
+}
 .button {
   width: 100%;
   max-width: 450px;

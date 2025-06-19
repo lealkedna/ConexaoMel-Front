@@ -5,6 +5,8 @@ import styles from '@/app/signup/Signup.module.css';
 import { api } from "@/services/api";
 import { redirect } from 'next/navigation';
 import { toast } from "sonner";
+import  Header from "@/components/Header";
+import  Footer  from "@/components/Footer";
 // import axios from 'axios';
 
 export default function Signup() {
@@ -52,6 +54,7 @@ export default function Signup() {
 
     return (
         <>
+        <Header />
             <div className={styles.container}>
                 <h1 className={styles.title}>ConexãoMel</h1>
                 <div className={styles.card}>
@@ -60,15 +63,44 @@ export default function Signup() {
                         <input className={styles.input} name="nome" placeholder="Digite o seu nome" />
                         <input className={styles.input} name="email" placeholder="Digite o seu e-mail" />
                         <input className={styles.input} name="telefone" placeholder="Digite o seu Telefone" />
-                        <input className={styles.input} name="password" type="password" placeholder="Crie uma senha" />
-                        <p><strong>Regras para a senha:</strong></p>
-                        <ul>
-                            <li>✅ Pelo menos <strong>8 caracteres</strong></li>
-                            <li>✅ Pelo menos <strong>1 letra maiúscula</strong></li>
-                            <li>✅ Pelo menos <strong>1 número</strong></li>
-                            <li>✅ Pelo menos <strong>1 caractere especial</strong> (ex: ! @ # $ %)</li>
-                        </ul>
+                        {/* <input className={styles.input} name="password" type="password" placeholder="Crie uma senha" /> */}
 
+                        <div className={styles.inputWrapper}>
+                            <input
+                                className={styles.input}
+                                name="password"
+                                type="password"
+                                id="senha"
+                                placeholder="Digite sua senha"
+                            />
+                            <label className={styles.checkboxLabel}>
+                                <input type="checkbox" id="mostrarSenha" defaultChecked={false}/>
+                                Mostrar senha
+                            </label>
+                            </div>
+
+                            <script
+                            dangerouslySetInnerHTML={{
+                                __html: `
+                                document.addEventListener('DOMContentLoaded', function () {
+                                    const checkbox = document.getElementById('mostrarSenha');
+                                    const senhaInput = document.getElementById('senha');
+                                    if (checkbox && senhaInput) {
+                                    checkbox.addEventListener('change', function () {
+                                        senhaInput.type = checkbox.checked ? 'text' : 'password';
+                                    });
+                                    }
+                                });
+                                `,
+                            }}
+                            ></script>
+                        <p><strong>Sua senha deve ter : </strong></p>
+                        <ul id="regras-senha" className="password-rules">
+                        <li id="regra1"> Pelo menos 8 caracteres</li>
+                        <li id="regra2"> Pelo menos 1 letra maiúscula</li>
+                        <li id="regra3"> Pelo menos 1 número</li>
+                        <li id="regra4"> Pelo menos 1 caractere especial</li>
+                    </ul>
                         <button type="submit" className={styles.button}>
                             Cadastre-se
                         </button>
@@ -76,6 +108,7 @@ export default function Signup() {
                     <p className={styles.link}>Já tem conta? <a href="/logar" className={styles.FazerLogin}>Faça Login</a></p>
                 </div>
             </div>
+            <Footer />
         </>
     )
 

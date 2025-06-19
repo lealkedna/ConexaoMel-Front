@@ -3,6 +3,8 @@ import styles from '@/app/logar/Logar.module.css';
 import { api } from "@/services/api";
 import { redirect } from 'next/navigation';
 import { cookies } from 'next/headers';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 
 export default function login(){
 
@@ -50,19 +52,71 @@ export default function login(){
     }
 
     return(
+        <>
+         <Header />
+        
         <div className={styles.container}>
             <div className={styles.card}>
                 <h1 className={styles.title}>ConexãoMel</h1>
                 <form action={handleLogin} className={styles.form}>
                     <input className={styles.input} name="email" placeholder="Digite o seu e-mail"  />
-                    <input className={styles.input} name="password"  type="password" placeholder="Digite sua senha"  />
-                    <button type="submit" className={styles.button}>
+                    {/* <input className={styles.input} name="password"  type="password" placeholder="Digite sua senha"  /> */}
+                   
+                   <div className={styles.inputWrapper}>
+                    <input
+                        className={styles.input}
+                        name="password"
+                        type="password"
+                        id="senha"
+                        placeholder="Digite sua senha"
+                    />
+                    <label className={styles.checkboxLabel}>
+                        <input type="checkbox" id="mostrarSenha" defaultChecked={false}/>
+                        Mostrar senha
+                    </label>
+                    </div>
+
+                    <script
+                    dangerouslySetInnerHTML={{
+                        __html: `
+                        document.addEventListener('DOMContentLoaded', function () {
+                            const checkbox = document.getElementById('mostrarSenha');
+                            const senhaInput = document.getElementById('senha');
+                            if (checkbox && senhaInput) {
+                            checkbox.addEventListener('change', function () {
+                                senhaInput.type = checkbox.checked ? 'text' : 'password';
+                            });
+                            }
+                        });
+                        `,
+                    }}
+                    ></script>
+                    <button type="submit" className={styles.button}  id="botaoEntrar">
                         Entrar
                     </button>
+                    <script
+                        dangerouslySetInnerHTML={{
+                            __html: `
+                            document.addEventListener('DOMContentLoaded', function () {
+                                const form = document.querySelector('form');
+                                const botao = document.getElementById('botaoEntrar');
+
+                                if (form && botao) {
+                                form.addEventListener('submit', function () {
+                                    botao.innerText = 'Entrando...';
+                                    botao.disabled = true;
+                                });
+                                }
+                            });
+                            `,
+                        }}
+                        ></script>
                 </form>
                 <p className={styles.link}>Ainda não tem Conta? <a href="/signup" className={styles.CadastreButton}>Cadastre-se!</a></p>
             </div>
         </div>
+        <Footer />
+        </>
     );
 }
 
