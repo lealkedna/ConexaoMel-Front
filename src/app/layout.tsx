@@ -4,6 +4,8 @@ import {Quicksand } from 'next/font/google'
 import "./globals.css";
 import { Toaster } from "sonner";
 import { EditProvider } from "@/providers/edit";
+import Script from "next/script";
+
 
 const quicksand = Quicksand({
   variable: "--font-quicksand-sans",
@@ -37,6 +39,20 @@ export default function RootLayout({
                 borderColor: "rgba(255, 255, 255, 0.5)"
               }}
             }
+          />
+          {/* Chatling scripts */}
+          <Script
+            id="chatling-config"
+            strategy="beforeInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `window.chtlConfig = { chatbotId: "1892961315" };`,
+            }}
+          />
+          <Script
+            id="chatling-script"
+            strategy="lazyOnload"
+            async
+            src="https://chatling.ai/js/embed.js"
           />
         </body>
       </EditProvider>
