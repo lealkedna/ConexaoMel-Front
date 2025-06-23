@@ -24,6 +24,7 @@ const HowItWorksSection = () => {
 
   return (
     <section className={styles.section}>
+      <span className={styles.badge}>Conexão Mel</span>
       <h2 className={styles.title}>Como funciona</h2>
       <p className={styles.subtitle}>
         Processo simples e transparente para conectar produtores e consumidores

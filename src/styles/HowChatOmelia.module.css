@@ -1,10 +1,9 @@
 .section {
-    background-color: #FFB64C36;
-    width:80%;
+    background-color: #FFEDCD;
+    width: 80%;
     height: auto;
     text-align: center;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 40px auto 0 auto;
     align-items: center;
     border-radius: 8px;
     background-image: url('/images/detalhes2.png');
@@ -13,23 +12,25 @@
     background-position: bottom center;
     padding: 4em;
   }
-  .badge {
+  .header{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .badge{
     background-color: #FFB64C;
-    color: #201920;
     padding: 5px 15px;
     border-radius: 20px;
     font-size: 0.9rem;
     font-weight: bold;
-}
-  .title {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 10px;
   }
   
   .subtitle {
-    font-size: 1.2rem;
-    color: #000;
+    font-size: 1.5rem;
+    color: #201914;
+    font-weight: bold;
     max-width: 600px;
     margin: 0 auto 30px;
   }
@@ -39,7 +40,7 @@
     justify-content: center;
     gap: 50px;
     flex-wrap: wrap;
-    color: #000;
+    color: #201914;
 
   }
   
