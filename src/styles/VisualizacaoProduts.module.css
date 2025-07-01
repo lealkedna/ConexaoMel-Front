@@ -6,11 +6,13 @@
 }
 
 .title {
-  font-size: 2rem;
+  align-self: flex-start; 
+  text-align: left;
+  font-size: 40px;
   font-weight: bold;
-  text-align: center;
   margin-bottom: 2rem;
 }
+
 
 .content {
   width: 100%;
@@ -24,7 +26,7 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  border: 1px solid #ddd;
+  /* border: 1px solid #ddd; */
   border-radius: 10px;
   padding: 1rem;
   background-color: #fafafa;
@@ -41,11 +43,24 @@
 
 .descricao {
   margin: 0;
-  font-size: 1.2rem;
+  /* font-size: 1.2rem; */
   font-weight: 500;
 }
 
 .preco {
   margin: 0.5rem 0 0 0;
   color: #444;
+}
+
+.options{
+ margin-left: auto;
+  
+}
+
+.bntOption{
+  background-color: transparent;
+  border: none;
+  padding: 1rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }

@@ -43,32 +43,33 @@ export default function Sidebar() {
 
   return (
       <aside className={styles.sidebar}>
-        <header className={styles.title}>
+        <div className={styles.title}>
           <h1 className={styles.sidebar_header}>{produtor ? `Olá, ${produtor.name}` : "Carregando..."}</h1>
-        </header>
-        <nav className={styles.nav}>
-          <button className={styles.bnt} onClick={() => router.push('/perfil?view=cadastrar')}>
-            <span className={styles.span}>
-              <IoIosAddCircle size={30}/>
-              <span >Cadastrar produto</span>
-            </span>
-          </button>
-          <button className={styles.bnt} onClick={() => router.push('/perfil?view=meusprodutos')}>
-            <span className={styles.span}>
-              <IoEye size={30}/>
-              <span>Meus produtos</span>
-            </span>
-          </button>
-
           <form action={handleLougot}>
                 <button type="submit" className={styles.bnt}>
                   <span className={styles.span}>
                       <IoIosLogOut size={30} color="red"/>
-                      {/* TODO: colocar span sair em vermelho */}
                     <span>Sair</span>
                   </span>
                 </button>
           </form>
+        </div>
+        <nav className={styles.nav}>
+          <button className={styles.bnt} 
+            onClick={() => router.push('/perfil?view=meusprodutos')}
+            >
+            <span className={styles.spanBnt}>
+              <IoEye size={30}/>
+              <span>Meus produtos</span>
+            </span>
+          </button>
+          <button className={styles.bnt} onClick={() => router.push('/perfil?view=cadastrar')}>
+            <span className={styles.spanBnt}>
+              <IoIosAddCircle size={30}/>
+              <span >Cadastrar produto</span>
+            </span>
+          </button>
+
           </nav>
       </aside>
   );

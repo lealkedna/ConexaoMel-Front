@@ -86,14 +86,15 @@ export default function VisualizacaoProducts() {
               <p className={styles.preco} >Preço: R${preco}</p>
               <p className={styles.preco}>Florada {role}</p> 
             </div>
-            <button onClick={() => handleDelete(id)}><MdDeleteForever size={25} color="#FFB64CAD"/></button>
-
-            <button onClick={() => {
+            <div className={styles.options}>  
+            <button className={styles.bntOption} onClick={() => handleDelete(id)}><MdDeleteForever size={35} color="#FFB64CAD"/></button>
+            <button className={styles.bntOption} onClick={() => {
                   setProdutoSelecionado({ id, preco, imagemName, descricao, role});
                   onRequestOpen();
                 }}>
-                  <BiSolidEditAlt size={25} color="#FFB64CAD"/>
+                  <BiSolidEditAlt size={35} color="#FFB64CAD"/>
             </button>
+            </div>
         </div>
       ))}
       </div>

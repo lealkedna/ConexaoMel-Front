@@ -1,0 +1,19 @@
+/* Estilos gerais */
+.perfilContainer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+/* Sidebar  */
+
+.sidedisplay{
+    background-color: #FFB64C36;
+    border-radius: 25px 25px 25px 25px;
+}
+
+.content{
+    flex: 1;
+    max-width: 800px;
+    margin: 0 auto;
+}

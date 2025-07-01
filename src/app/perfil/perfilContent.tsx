@@ -2,13 +2,14 @@
 "use client";
 
 import React from "react";
-import styles from "../perfil/Perfil.module.css";
+// import styles from "../perfil/Perfil.module.css";
+import styles from "./Css.module.css"
 import { useSearchParams } from "next/navigation";
 import { FormProduto } from "@/components/FormProduto";
 import VisualizacaoProducts from "@/components/VisualizacaoProduts";
-import Floradas from "@/components/Floradas";
 import SideBar from "@/components/SideBar";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export default function PerfilContent() {
   const searchParams = useSearchParams();
@@ -18,16 +19,15 @@ export default function PerfilContent() {
     switch (view) {
       case "cadastrar":
         return <FormProduto />;
-      case "meusprodutos":
-        return <VisualizacaoProducts />;
       default:
-        return <Floradas />;
+        return <VisualizacaoProducts />;
     }
   };
 
   return (
-    <div className={styles.perfilContainer}>
+    <>    
       <Header />
+     <div className={styles.perfilContainer}>
       <div className={styles.sidedisplay}>
         <div className={styles.sidecanto}>
           <SideBar />
@@ -35,5 +35,7 @@ export default function PerfilContent() {
         <div className={styles.content}>{renderContent()}</div>
       </div>
     </div>
+      <Footer />
+    </>
   );
 }

@@ -9,6 +9,7 @@
 
 .sidedisplay{
     display: flex;
+    justify-self: center;
     /* border: solid 1px #FFB64C; */
     background-color: #FFB64C36;
     border-radius: 25px 25px 25px 25px;
@@ -18,9 +19,12 @@
     background-color: #FFB64CAD;
     border-radius: 25px 25px 25px 25px;
 }
-/* .content{
-    border: solid #e74c3c;
-} */
+.content{
+    flex: 1;
+    max-width: 800px;
+    margin: 0 auto;
+    
+}
 
 /* Cartão do perfil */
 .profileCard {
