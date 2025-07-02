@@ -1,15 +1,15 @@
 /* Estilos gerais */
 .perfilContainer {
-    max-width: 1200px;
+    /* max-width: 1200px; */
+    width: 100%;
     margin: 0 auto;
-    padding: 20px;
     font-family: Arial, sans-serif;
 }
 /* Sidebar  */
 
 .sidedisplay{
     background-color: #FFB64C36;
-    border-radius: 25px 25px 25px 25px;
+    display: flex;
 }
 
 .content{
