@@ -1,25 +1,32 @@
 // import Image from 'next/image';
 // import Link from 'next/link';
-
+'use client'
 import styles from '@/app/signup/Signup.module.css';
 import { api } from "@/services/api";
 import { redirect } from 'next/navigation';
 import { toast } from "sonner";
-import  Header from "@/components/Header";
-import  Footer  from "@/components/Footer";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import ValidadorSenha from '@/components/ValidadorSenha';
+import { useState } from 'react';
 // import axios from 'axios';
 
 export default function Signup() {
-
+    const [senhaValida, setSenhaValida] = useState(false);
     async function handleRegister(formData: FormData) {
-        "use server"
         const nome = formData.get('nome')?.toString() || "";
         const email = formData.get('email')?.toString() || "";
         const password = formData.get('password')?.toString() || "";
         const telefone = formData.get('telefone')?.toString() || "";
 
         if (!nome || !email || !telefone || !password) {
-            console.log("Preencha todos os campos");
+            // console.log("Preencha todos os campos");
+            toast.warning("Preencha todos os campos");
+
+            return;
+        }
+        if (!senhaValida) {
+            toast.warning("Sua senha não atende aos critérios de segurança.");
             return;
         }
 
@@ -54,7 +61,7 @@ export default function Signup() {
 
     return (
         <>
-        <Header />
+            <Header />
             <div className={styles.container}>
                 <h1 className={styles.title}>ConexãoMel</h1>
                 <div className={styles.card}>
@@ -65,7 +72,7 @@ export default function Signup() {
                         <input className={styles.input} name="telefone" placeholder="Digite o seu Telefone" />
                         {/* <input className={styles.input} name="password" type="password" placeholder="Crie uma senha" /> */}
 
-                        <div className={styles.inputWrapper}>
+                        {/* <div className={styles.inputWrapper}>
                             <input
                                 className={styles.input}
                                 name="password"
@@ -100,7 +107,10 @@ export default function Signup() {
                         <li id="regra2"> Pelo menos 1 letra maiúscula</li>
                         <li id="regra3"> Pelo menos 1 número</li>
                         <li id="regra4"> Pelo menos 1 caractere especial</li>
-                    </ul>
+                    </ul> */}
+                        <ValidadorSenha onSenhaValidaChange={setSenhaValida} />
+
+
                         <button type="submit" className={styles.button}>
                             Cadastre-se
                         </button>

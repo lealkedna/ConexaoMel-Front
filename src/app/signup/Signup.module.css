@@ -1,136 +1,156 @@
 .container {
+  min-height: 100vh;
+  background-color: #FFF9EC;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 80vh;
-  padding: 16px;
+  padding: 32px 16px;
 }
 
-.card{
+.card {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  max-width: 600px;
   width: 100%;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
+  text-align: center;
 }
 
 .title {
   font-size: clamp(32px, 5vw, 64px);
-  font-weight: bold;
-  text-align: center;
-  margin-bottom: 8px;
+  font-weight: 600;
   color: #f4a261;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 12px;
 }
 
-
 .subtitle {
-  text-align: center;
-  color: #000;
-  margin-bottom: 16px;
-  font-size: clamp(16px, 2vw, 24px);
+  font-size: clamp(16px, 2vw, 22px);
+  color: #444;
+  margin-bottom: 24px;
+  font-family: 'Poppins', sans-serif;
 }
 
 .form {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  margin: 16px 0;
-  padding: 0 16px;
+  gap: 20px;
   width: 100%;
-  max-width: 800px; 
+  margin-bottom: 24px;
 }
 
+.inputWrapper{
+  display: grid;
+}
 
 .input {
-  padding: 16px;
-  width: 100%;
-  max-width: 800px;
-  min-height: 50px;
-  font-size: 1rem;
-  border: 1px solid #f4a261;
-  border-radius: 20px;
-  color: #000;
+  padding: 14px 20px;
+  border: 2px solid #f0dca6;
+  border-radius: 12px;
+  background-color: #fefcf8;
+  font-size: 16px;
+  color: #201914;
+  transition: border-color 0.3s ease;
 }
 
-.checkboxLabel{
-  display: flex;
-  gap: 10px;
-  font-size: 0.9rem;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-left: 20px;
+.input:focus {
+  border-color: #f9c846;
+  outline: none;
 }
+
+.contentRegras {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #444;
+}
+
+.contentRegras p {
+  display: flex;
+  
+}
+
+.passwordRegras{
+  text-align: justify;
+  list-style: none;
+  margin-top: 6px;
+}
+
+.valida {
+  color: green;
+}
+
+.invalida {
+  color: #888;
+}
+
+.avisoInvalido {
+  color: red;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+  color: #333;
+  margin-left: 8px;
+  text-align: left;
+}
+
 .button {
-  width: 100%;
-  max-width: 450px;
-  height: 50px;
-  padding: 10px;
-  font-size: 1.2rem;
-  background-color: #FFB64C;
-  border-radius: 8px;
+  background-color: #f9c846;
+  color: #201914;
+  font-weight: bold;
+  font-size: 1.1rem;
+  padding: 12px;
   border: none;
+  border-radius: 12px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .button:hover {
-  background-color: #000;
-  color: #f4a261;
+  background-color: #e0ae2c;
 }
-
 
 .link {
-  padding-top: 50px;
-  text-align: center;
   font-size: 1rem;
-  color: #000;
+  color: #777;
+  margin-top: 24px;
 }
-
-.FazerLogin{
+.FazerLogin {
   color: #f4a261;
+  font-weight: 500;
+  text-decoration: none;
+  margin-left: 6px;
 }
 
-@media (min-width: 1440px) {
-  .form {
-      max-width: 600px;
-  }
-  
-  .input,
-  .button {
-      max-width: 600px;
-      font-size: 1.2rem;
-  }
-
-  .title {
-      font-size: 6vw;
-  }
+.FazerLogin:hover {
+  text-decoration: underline;
 }
 
-
+/* Responsividade */
 @media (max-width: 768px) {
   .title {
-      font-size: 6vw;
-  }
-  
-  .input,
-  .button {
-      width: 90%;
-  }
-}
-
-
-@media (max-width: 480px) {
-  .title {
-      font-size: 7vw;
+    font-size: 7vw;
   }
 
   .subtitle {
-      font-size: 1rem;
+    font-size: 1rem;
   }
 
-  .input,
-  .button {
-      width: 100%;
+  .card {
+    padding: 24px;
+  }
+
+  .button,
+  .input {
+    font-size: 1rem;
   }
 }
+
+

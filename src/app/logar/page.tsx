@@ -5,6 +5,7 @@ import { redirect } from 'next/navigation';
 import { cookies } from 'next/headers';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import { SubmitButton } from '@/components/SubmitButton';
 
 export default function login(){
 
@@ -91,9 +92,11 @@ export default function login(){
                         `,
                     }}
                     ></script>
-                    <button type="submit" className={styles.button}  id="botaoEntrar">
+                    {/* <button type="submit" className={styles.button}  id="botaoEntrar">
                         Entrar
-                    </button>
+                    </button> */}
+
+                      <SubmitButton />
                     <script
                         dangerouslySetInnerHTML={{
                             __html: `
@@ -112,7 +115,7 @@ export default function login(){
                         }}
                         ></script>
                 </form>
-                <p className={styles.link}>Ainda não tem Conta? <a href="/signup" className={styles.CadastreButton}>Cadastre-se!</a></p>
+                <p className={styles.link}>Ainda não tem Conta? <a href="/signup" className={styles.FazerLogin}>Cadastre-se!</a></p>
             </div>
         </div>
         <Footer />
