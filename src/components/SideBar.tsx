@@ -2,9 +2,9 @@
 "use client"
 import React, { useState, useEffect } from "react";
 import styles from '@/styles/SideBar.module.css';
-import { IoIosAddCircle } from "react-icons/io";
-import { IoEye } from "react-icons/io5";
-import { IoIosLogOut } from "react-icons/io";
+import { IoIosAddCircle, IoIosLogOut } from "react-icons/io";
+import { FaGreaterThan, FaLessThan } from "react-icons/fa6";
+import { IoEye} from "react-icons/io5";
 import { deleteCookie } from "cookies-next";
 import { useRouter } from 'next/navigation';
 import { api } from "@/services/api";
@@ -19,6 +19,11 @@ type Produtor = {
 export default function Sidebar() {
   const router = useRouter();
   const [produtor, setProdutor] = useState<Produtor | null>(null);
+  const [menuAberto, setMenuAberto] = useState(false);
+  
+   const toggleMenu = () => {
+          setMenuAberto(!menuAberto);
+      };
 
   async function handleLougot() {
           deleteCookie("signin", {path: "/"});
@@ -42,7 +47,12 @@ export default function Sidebar() {
   
 
   return (
-      <aside className={styles.sidebar}>
+    <> 
+     <button className={styles.menuToggle} onClick={toggleMenu}>
+        {menuAberto ? <FaLessThan size={30} /> : <FaGreaterThan size={30} />}
+      </button>
+
+      <aside className={`${styles.sidebar} ${menuAberto ? styles.open : ''}`} >
         <div className={styles.title}>
           <h1 className={styles.sidebar_header}>{produtor ? `Olá, ${produtor.name}` : "Carregando..."}</h1>
           <form action={handleLougot}>
@@ -72,5 +82,6 @@ export default function Sidebar() {
 
           </nav>
       </aside>
+      </>
   );
 }

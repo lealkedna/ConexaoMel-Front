@@ -3,7 +3,7 @@
     display: flex;
     justify-content: space-between; 
     align-items: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     width: 100%;
     padding: 10px 20px;
     max-width: 1500px;
@@ -18,27 +18,12 @@
     transition: all 0.3s ease-in-out;
 }
 
-
-@media (max-width: 1024px) {
-    .containerHeader {
-        justify-content: center; 
-        padding: 15px;
-    }
-
-    .imageLogo {
-        max-width: 120px; 
-    }
-}
-
-
 @media (max-width: 600px) {
-    .containerHeader {
-        flex-direction: column; 
-        text-align: center;
-        padding: 10px;
-    }
+  .imageLogo {
+    max-width: 90px;
+  }
 
-    .imageLogo {
-        max-width: 100px; 
-    }
+  .containerHeader {
+    padding: 8px 15px;
+  }
 }

@@ -66,3 +66,25 @@
   transition: background-color 0.3s ease;
   display: inline-grid;
 }
+
+@media (max-width: 768px) {
+ .list {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .previewImage {
+    width: 150px;  
+    height: auto;
+    align-self: center;
+  }
+
+  .options {
+    /* margin-left: 0; */
+    justify-content: flex-end;
+  }
+  .title{
+    align-self: center;
+  }
+}
