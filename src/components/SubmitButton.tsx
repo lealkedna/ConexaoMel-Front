@@ -2,7 +2,11 @@
 import { useFormStatus } from "react-dom";
 import styles from "@/app/logar/Logar.module.css";
 
-export function SubmitButton() {
+type Props = {
+  texto?: string;
+};
+
+export function SubmitButton({ texto = "Entrar" }: Props) {
   const { pending } = useFormStatus();
 
   return (
@@ -12,11 +16,7 @@ export function SubmitButton() {
       className={styles.button}
       id="botaoEntrar"
     >
-      {pending ? (
-        <div className={styles.spinner}></div>
-      ) : (
-        "Entrar"
-      )}
+      {pending ? <div className={styles.spinner}></div> : texto}
     </button>
   );
 }
