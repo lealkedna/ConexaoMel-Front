@@ -3,24 +3,54 @@
     flex-direction: column;
     align-items: center;
     padding: 2rem;
+    /* border: 5px solid orange; */
+    height: auto;
 }
 
 .title {
-  align-self: flex-start; 
+  display: flex;
+  justify-content: left;
+  align-items: center;
   text-align: left;
   font-size: 40px;
   font-weight: bold;
   margin-bottom: 2rem;
+  /* border: 5px solid ; */
 }
-
 
 .content {
   width: 100%;
   max-width: 800px;
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
   gap: 1.5rem;
 }
+
+.emptyContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* margin-top: 30px; */
+   margin-left: auto;
+  margin-right: auto;
+  padding: 8rem;
+}
+
+.emptyImage {
+  margin-bottom: 10px;
+  opacity: 0.7;
+}
+
+.noProductMessage {
+  font-size: 1.2rem;
+  color: #444;
+  text-align: center;
+}
+
+
 
 .list {
   display: flex;

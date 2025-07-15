@@ -114,6 +114,7 @@ export default function Signup() {
                         <button type="submit" className={styles.button}>
                             Cadastre-se
                         </button>
+                        
                     </form>
                     <p className={styles.link}>Já tem conta? <a href="/logar" className={styles.FazerLogin}>Faça Login</a></p>
                 </div>
