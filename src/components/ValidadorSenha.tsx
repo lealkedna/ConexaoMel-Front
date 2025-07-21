@@ -9,6 +9,7 @@ interface Props {
 
 export default function ValidadorSenha({ onSenhaValidaChange }: Props) {
   const [senha, setSenha] = useState('');
+  const [confirmarSenha, setConfirmarSenha] = useState('');
   const [mostrar, setMostrar] = useState(false);
 
   const validaTamanho = senha.length >= 8;
@@ -17,10 +18,11 @@ export default function ValidadorSenha({ onSenhaValidaChange }: Props) {
   const validaEspecial = /[^A-Za-z0-9]/.test(senha);
 
   const senhaValida = validaTamanho && validaMaiuscula && validaNumero && validaEspecial;
+  const senhasIguais = senha === confirmarSenha && confirmarSenha.length > 0;
 
   useEffect(() => {
-    onSenhaValidaChange(senhaValida);
-  }, [senhaValida]);
+    onSenhaValidaChange(senhaValida && senhasIguais);
+  }, [senhaValida, senhasIguais]);
 
   return (
     <div className={styles.inputWrapper}>
@@ -32,6 +34,16 @@ export default function ValidadorSenha({ onSenhaValidaChange }: Props) {
         value={senha}
         onChange={(e) => setSenha(e.target.value)}
       />
+
+      <input
+        className={styles.input}
+        name="confirmarSenha"
+        type={mostrar ? 'text' : 'password'}
+        placeholder="Confirme sua senha"
+        value={confirmarSenha}
+        onChange={(e) => setConfirmarSenha(e.target.value)}
+      />
+
       <label className={styles.checkboxLabel}>
         <input
           type="checkbox"
@@ -41,6 +53,11 @@ export default function ValidadorSenha({ onSenhaValidaChange }: Props) {
         Mostrar senha
       </label>
 
+      {confirmarSenha.length > 0 && !senhasIguais && (
+        <span className={styles.erro}>As senhas não coincidem</span>
+      )}
+
+    
       <div className={styles.contentRegras}>
         <p><strong>Sua senha deve ter:</strong></p>
         <ul className={styles.passwordRegras}>

@@ -83,9 +83,9 @@ export function FormProduto() {
     };
 
     return (
-        <div>
+        <div className={styles.container}  >
             <form className={styles.form} action={handleCadastrar}>
-            <p className={styles.descricaoCampo}>Adicione uma imagem do seu produto (JPG ou PNG)</p>
+                <p className={styles.descricaoCampo}>Adicione uma imagem do seu produto (JPG ou PNG)</p>
                 <label className={styles.labelImage} >
                     <span className={styles.span}>
                         <UploadCloud size={24} color="#f4a261" />
@@ -93,14 +93,18 @@ export function FormProduto() {
                     <input className={styles.input} type='file' accept="image/png, image/jpeg" required onChange={handleFile} />
 
                     {previewImage && (
-                        <Image
-                            alt="Imagem de visualização"
-                            src={previewImage}
-                            className={styles.previewImage}
-                            fill={true}
-                            quality={100}
-                            priority={true}
-                        />
+                        <div className={styles.previewImage}>
+                            <Image
+                                alt="Imagem de visualização"
+                                src={previewImage}
+                                className={styles.previewImage}
+                                fill={true}
+                                quality={100}
+                                priority={true}
+
+                            />
+                        </div>
+
                     )}
                 </label>
                 <p className={styles.descricaoCampo}>Descreva as características do seu mel (sabor, cor, origem...)</p>
@@ -117,7 +121,6 @@ export function FormProduto() {
                     required
                     className={styles.camposFormulario}>
                 </input>
-                <p className={styles.descricaoCampo}>Selecione a florada do seu mel</p>
 
                 <label htmlFor="role">Selecione o tipo de árvore:</label>
                 <select className={styles.camposFormulario} name="role" id="role" required>
@@ -131,7 +134,6 @@ export function FormProduto() {
 
                 <ButtonCreate name="Cadastar Meu Produto" />
             </form>
-            {/* Exibindo mensagem de feedback */}
             {message && <div className={styles.feedbackMessage}>{message}</div>}
             {isSubmitting && <div>Enviando...</div>}
         </div>

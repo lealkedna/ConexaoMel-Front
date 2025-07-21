@@ -59,30 +59,22 @@ export default function login() {
 
             <div className={styles.container}>
                 <div className={styles.card}>
-                    <h1 className={styles.title}>ConexãoMel</h1>
+                    <h1 className={styles.title}>Conexão Mel</h1>
                     <form action={handleLogin} className={styles.form}>
+
                         <input className={styles.input} name="email" placeholder="Digite o seu e-mail" />
-
                         <MostraSenha name="password" placeholder="Digite sua senha" />
+                        <ul>
+                            <li className={styles.loginRegras}>
+                                O preenchimento do e-mail é obrigatório *
+                            </li>
 
+                            <li className={styles.loginRegras}>
+                                O preenchimento da senha é obrigatório *
+                            </li>
+
+                        </ul>
                         <SubmitButton texto="Entrar" />
-                        {/* <script
-                            dangerouslySetInnerHTML={{
-                                __html: `
-                            document.addEventListener('DOMContentLoaded', function () {
-                                const form = document.querySelector('form');
-                                const botao = document.getElementById('botaoEntrar');
-
-                                if (form && botao) {
-                                form.addEventListener('submit', function () {
-                                    botao.innerText = 'Entrando...';
-                                    botao.disabled = true;
-                                });
-                                }
-                            });
-                            `,
-                            }}
-                        ></script> */}
                     </form>
                     <p className={styles.link}>Ainda não tem Conta? <a href="/signup" className={styles.FazerLogin}>Cadastre-se!</a></p>
                 </div>

@@ -20,7 +20,7 @@
 
 .title {
   font-size: 36px;
-  color: #f4a261;
+  /* color: #201914; */
   font-family: 'Poppins', sans-serif;
   margin-bottom: 8px;
 }
@@ -72,6 +72,14 @@
   font-size: 14px;
   color: #444;
   margin-top: 8px;
+}
+
+.loginRegras{
+  color: red;
+  list-style: none;
+  font-size: 0.85rem;
+  margin-bottom: 4px;   /* espaço entre a mensagem e o input */
+  margin-top: -4px;
 }
 
 .button {
