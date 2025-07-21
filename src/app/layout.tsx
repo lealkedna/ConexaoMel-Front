@@ -4,6 +4,7 @@ import {Quicksand } from 'next/font/google'
 import "./globals.css";
 import { Toaster } from "sonner";
 import { EditProvider } from "@/providers/edit";
+import { AuthProvider } from "@/providers/auth";
 import Script from "next/script";
 
 
@@ -27,6 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <AuthProvider>
       <EditProvider>
         <body className={quicksand.className}>
           {children}
@@ -56,6 +58,7 @@ export default function RootLayout({
           />
         </body>
       </EditProvider>
+      </AuthProvider>
     </html>
   );
 }

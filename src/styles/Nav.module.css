@@ -31,6 +31,10 @@
   color: #FFB64C;
   font-weight: bold;
 }
+.perfilIcon:hover{
+  color: #FFB64C;
+  transition: 0.5s;
+}
 
 .menu_responsivo {
   color: #201914;

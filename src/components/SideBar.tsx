@@ -28,7 +28,9 @@ export default function Sidebar() {
   async function handleLougot() {
           deleteCookie("signin", {path: "/"});
           toast.success("Você saiu da plataforma. Até a próxima !")
-          router.replace('/');
+        // router.replace('/');
+        router.replace('/');
+        window.location.reload();
       }
 
   const fetchProdutosPerfil = async () => {
