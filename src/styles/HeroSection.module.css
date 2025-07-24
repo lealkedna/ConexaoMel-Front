@@ -1,33 +1,47 @@
 .hero {
-    max-width: 600px;
-    padding: 20px;
-}
-.badge {
-    background-color: #ffcc80;
-    padding: 5px 10px;
-    border-radius: 15px;
-    font-size: 0.9rem;
-    font-weight: bold;
+  padding: 4rem 2rem;
+  /* background: #fff; */
+  text-align: center;
+  position: relative;
 }
 
+.badge {
+  background-color: #fcd34d;
+  color: #111827;
+  padding: 0.4rem 1rem;
+  border-radius: 9999px;
+  font-weight: bold;
+  font-size: 0.875rem;
+  display: inline-block;
+  margin-bottom: 1rem;
+}
 
 .title {
-    font-size: clamp(1.8rem, 3vw, 3rem); 
-    font-weight: bold;
-    margin-top: 10px;
-    text-align: center; 
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: #1f2937;
+}
+
+
+.highlight {
+  color: #f59e0b; 
+  font-size: 3.2rem;
 }
 
 .description {
-    font-size: 1.2rem;
-    color: #555;
-    margin-top: 15px;
+  font-size: 1.125rem;
+  color: #4b5563;
+  max-width: 600px;
+  margin: 0 auto 2rem;
 }
 
 .buttons {
-    display: flex;
-    gap: 15px;
-    margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
 }
 
 .buttons Button:hover{
