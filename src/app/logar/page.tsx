@@ -31,7 +31,7 @@ export default function login() {
                 return;
             }
 
-            console.log(response.data);
+            // console.log(response.data);
 
             const expressTime = 60 * 60 * 24 * 30 * 1000;
             const cookieStore = await cookies();

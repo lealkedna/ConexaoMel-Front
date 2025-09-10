@@ -22,6 +22,8 @@ export function FormProduto() {
     const [previewImage, setPreviewImage] = useState("");
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [message, setMessage] = useState("");
+    const [descricao, setDescricao] = useState("");
+    const limiteCaracteres = 500;
 
     async function handleCadastrar(formData: FormData) {
 
@@ -55,12 +57,11 @@ export function FormProduto() {
                 },
             });
             toast.success("Produto cadastrado com sucesso!")
-            setMessage("Produto cadastrado com sucesso!");
+            alert("Produto cadastrado com sucesso!");
             fetchProdutos();
         } catch (err) {
             console.log(err);
-            // setMessage("Erro ao cadastrar o produto. Tente novamente.");
-            setMessage("Produto cadastrado com sucesso!");
+            alert("Erro ao cadastrar o produto, tente novamente.");
         } finally {
             setIsSubmitting(false);
         }
@@ -108,13 +109,20 @@ export function FormProduto() {
                     )}
                 </label>
                 <p className={styles.descricaoCampo}>Descreva as características do seu mel (sabor, cor, origem...)</p>
-                <textarea
+                 <textarea
                     className={`${styles.camposFormulario} ${styles.textarea}`}
                     placeholder="Dê uma descrição do seu mel"
                     name="descricao"
-                    required>
-                </textarea>
+                    required
+                    maxLength={limiteCaracteres}
+                    value={descricao}
+                    onChange={(e) => setDescricao(e.target.value)}
+                />
+                <p className={styles.contadorCaracteres}>
+                    Caracteres: {descricao.length} / {limiteCaracteres}
+                </p>
                 <p className={styles.descricaoCampo}>Informe o preço (R$)</p>
+
                 <input
                     type="number"
                     name="preco" placeholder="Qual o preço por Litro?"

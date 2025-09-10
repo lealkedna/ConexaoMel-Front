@@ -7,8 +7,8 @@ const HeroSection = () => {
     <section className={styles.hero}>
       <span className={styles.badge}>Conexão Mel</span>
       <h1 className={styles.title}>
-        Mel direto <br />  do produtor
-        para sua mesa
+        <span className={styles.highlight}>Mel direto</span> <br />
+        do produtor para sua mesa
       </h1>
       <p className={styles.description}>
         Ajude pequenos apicultores a prosperar enquanto consome mel puro e de qualidade.
