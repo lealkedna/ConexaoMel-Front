@@ -11,16 +11,16 @@
 }
 
 .imageLogo {
-    border-radius: 50px;
-    border: 5px solid #201914;
+    /* border-radius: 50px; */
+    /* border: 5px solid #201914; */
     height: auto;
-    max-width: 150px; 
+    max-width: 250px; 
     transition: all 0.3s ease-in-out;
 }
 
 @media (max-width: 600px) {
   .imageLogo {
-    max-width: 90px;
+    max-width: 110px;
   }
 
   .containerHeader {

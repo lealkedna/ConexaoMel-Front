@@ -9,7 +9,7 @@ const Footer = () => {
       <div className={styles.footerContent}>
         <div className={styles.footerSection}>
         <Image
-                src="/images/logo.jpeg"
+                src="/images/novaLogo.png"
                 alt="Logo"
                 width={100}
                 height={100}
@@ -22,7 +22,7 @@ const Footer = () => {
         {/* Contato */}
         <div className={styles.footerSection}>
           <h3>Contato</h3>
-          <p><Phone size={16} /> (11) 99999-9999</p>
+          <p><Phone size={16} /> +55 (89) 98114-9868 </p>
           <p><Mail size={16} /> conexaomel53@gmail.com</p>
           <p><MapPin size={16} /> Picos, PI</p>
         </div>

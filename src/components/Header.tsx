@@ -7,10 +7,10 @@ const Header = () => {
     return (
         <div className={styles.containerHeader}>
             <Image
-                src="/images/logo.jpeg"
+                src="/images/logoHorizontal.png"
                 alt="Logo"
-                width={100}
-                height={100}
+                width={300}
+                height={300}
                 className={styles.imageLogo}
             />
             <Nav/>
