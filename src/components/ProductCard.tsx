@@ -59,7 +59,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ imagemName, descricao, preco,
         <div className={styles.divPreco}>
           <TbCurrencyReal size={30} color="#FFB64C" />
           <span className={styles.price}>{preco}</span>
-          <span className={styles.preco}>/litro </span>
+          <span className={styles.preco}>/unidade </span>
         </div>
 
         <button onClick={handleWhatsApp} className={styles.button}>Comprar Agora ➜</button>
