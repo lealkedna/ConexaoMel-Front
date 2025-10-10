@@ -1,14 +1,13 @@
-// app/ga-listener.tsx
 "use client";
 
-export {}; // garante que o arquivo é tratado como módulo
+export {}; 
 
 import { useEffect } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
-// ✅ Define um tipo específico para evitar "any"
+/* eslint-disable @typescript-eslint/no-explicit-any */
 type GtagCommand = "config" | "event" | "js";
 type GtagArgs = [command: GtagCommand, ...params: unknown[]];
 
@@ -38,3 +37,4 @@ export default function GAListener() {
 
   return null;
 }
+/* eslint-enable @typescript-eslint/no-explicit-any */
