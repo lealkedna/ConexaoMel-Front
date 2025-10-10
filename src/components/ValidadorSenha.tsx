@@ -22,7 +22,7 @@ export default function ValidadorSenha({ onSenhaValidaChange }: Props) {
 
   useEffect(() => {
     onSenhaValidaChange(senhaValida && senhasIguais);
-  }, [senhaValida, senhasIguais]);
+  }, [senhaValida, senhasIguais, onSenhaValidaChange]);
 
   return (
     <div className={styles.inputWrapper}>
