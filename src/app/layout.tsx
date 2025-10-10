@@ -7,6 +7,7 @@ import { EditProvider } from "@/providers/edit";
 import { AuthProvider } from "@/providers/auth";
 import Script from "next/script";
 import GAListener from "./ga-listener";
+import { Suspense } from "react";
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 const isProd = process.env.NODE_ENV === "production";
@@ -51,7 +52,9 @@ export default function RootLayout({
         `}
                 </Script>
                 {/* Dispara pageviews nas mudanças de rota (App Router) */}
-                <GAListener />
+                <Suspense fallback={null}>
+                  <GAListener />
+                </Suspense>
               </>
             ) : null}
 
