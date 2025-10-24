@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <link rel="canonical" href="https://www.conexaomel.com.br/" />
+        <link rel="canonical" href="https://www.conexaomel.com.br" />
       </Head>
       <div className={styles.page} >
         <Header />
