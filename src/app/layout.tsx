@@ -67,7 +67,7 @@
               />
 
               {/* Chatling scripts */}
-              <Script
+              {/* <Script
                 id="chatling-config"
                 strategy="beforeInteractive"
                 dangerouslySetInnerHTML={{
@@ -79,8 +79,27 @@
                 strategy="lazyOnload"
                 async
                 src="https://chatling.ai/js/embed.js"
+              /> */}
+              <Script
+                id="chatling-config"
+                strategy="beforeInteractive"
+                dangerouslySetInnerHTML={{
+                  __html: `window.chtlConfig = { chatbotId: "1185137682" };`,
+                }}
               />
+              <Script
+                id="chatling-script"
+                strategy="lazyOnload"
+                async
+                src="https://chatling.ai/js/embed.js"
+              />
+
             </body>
+
+
+{/* <script> window.chtlConfig = { chatbotId: "1185137682" } </script>
+<script async data-id="1185137682" id="chtl-script" type="text/javascript" src="https://chatling.ai/js/embed.js"></script> */}
+
           </EditProvider>
         </AuthProvider>
       </html>

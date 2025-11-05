@@ -1,12 +1,19 @@
 .card {
     display: flex;
-    flex-direction: column;
     align-items: center;
-    text-align: center;
+    gap: 15px;
     background-color: transparent;
-    padding: 20px;
-    width: 200px;
+    padding: 15px 10px 10px 30px;
+    width: 100%;
+    text-align: left;
   }
+
+.element{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
   
   .icon {
     background-color: #FFB64C;
@@ -15,18 +22,41 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-shrink: 0;
   }
   
   .title {
     font-size: 1.2rem;
     font-weight: bold;
-    margin-top: 10px;
+    margin: 0;
   }
   
   .description {
-    font-size: 1rem;
+    font-size: 0.9rem;
     color: #000;
     font-weight: 500;
     margin-top: 5px;
+    line-height: 1.4;
   }
-  
+
+@media (max-width: 768px) {
+    .card {
+    flex-direction: column;
+    align-items: center; 
+    text-align: center;
+    gap: 10px;
+    padding: 15px 0;
+  }
+
+  .element {
+    align-items: center; 
+  }
+
+  .title {
+    font-size: 1rem;
+  }
+
+  .description {
+    font-size: 0.85rem;
+  }
+  }

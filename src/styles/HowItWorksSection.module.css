@@ -1,45 +1,112 @@
 .section {
-    background-color: #FFB64C36;
-    width:80%;
-    height: auto;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    align-items: center;
-    border-radius: 8px;
-    background-image: url('/images/detalhes2.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: bottom center;
-    padding: 4em;
-  }
-  .badge {
-    background-color: #FFB64C;
-    color: #201920;
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: bold;
-}
-  .title {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-  
-  .subtitle {
-    font-size: 1.2rem;
-    color: #000;
-    max-width: 600px;
-    margin: 0 auto 30px;
-  }
-  
-  .steps {
-    display: flex;
-    justify-content: center;
-    gap: 50px;
-    flex-wrap: wrap;
-    color: #000;
+  background-color: #ffb64c36;
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+  border-radius: 8px;
+  background-image: url("/images/detalhes2.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom center;
+  padding: 4em 2em;
 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ----------- TEXTOS SUPERIORES ----------- */
+.textContainer {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.badge {
+  background-color: #ffb64c;
+  color: #201920;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  display: inline-block;
+  margin-bottom: 0.8rem;
+}
+
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #201920;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: #000;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ----------- CONTEÚDO (IMAGEM + STEPS) ----------- */
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+  max-width: 1200px;
+  width: 100%;
+  flex-wrap: wrap; 
+}
+
+.imageContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.image {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ----------- STEPS ----------- */
+.steps {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1.8rem;
+  color: #000;
+}
+
+/* ----------- RESPONSIVIDADE ----------- */
+@media (max-width: 900px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
   }
-  
+
+  .steps {
+    align-items: center;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    max-width: 90%;
+  }
+
+  .badge {
+    font-size: 0.85rem;
+    padding: 5px 12px;
+  }
+
+  .title {
+    font-size: 1.6rem;
+  }
+  .imageContainer{
+    display: none;
+  }
+}

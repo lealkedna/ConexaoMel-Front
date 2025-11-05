@@ -1,18 +1,37 @@
 .section {
-    background-color: #FFEDCD;
-    width: 80%;
+    background-color: #F5F5F0;
     height: auto;
+    width: 80%;
     text-align: center;
     margin: 40px auto 0 auto;
-    align-items: center;
     border-radius: 8px;
     background-image: url('/images/Background-Graphic-3.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom center;
-    padding: 4rem;
+    padding: 10rem 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
-  .header{
+  .container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 4rem;
+    max-width: 1200px;
+    width: 100%;
+  }
+  .imageContainer {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+.image {
+  max-width: 100%;
+  height: auto;
+}
+.header{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -23,7 +42,7 @@
     background-color: #FFB64C;
     padding: 5px 15px;
     border-radius: 20px;
-    font-size: 0.9rem;
+    font-size: 1.3rem;
     font-weight: bold;
   }
   
@@ -37,34 +56,47 @@
   
   .steps {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    gap: 50px;
     flex-wrap: wrap;
     color: #201914;
 
   }
-
-  @media (max-width: 768px) {
-    .section{
-      width: 90%;
-    }
-    .image{
-        width: 200px;
-        height: 200px;
-    }
-    .badge{
-        width: 100%;
-        text-align: center;
-    }
-    .subtitle{
-      font-size: 1.5rem;
-
-    }
-    .steps {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 20px;
+  .image{
+    filter: drop-shadow(1px 1px 20px);
+  }
+   @media (max-width: 768px) {
+  .section {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem 1rem;
   }
 
+  .badge {
+    width: auto; 
+    font-size: 0.95rem;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    margin-bottom: 0.5rem;
+  }
+
+  .subtitle {
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.6; 
+    max-width: 90%; 
+    margin: 0 auto 1.5rem;
+  }
+
+  .steps {
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+  }
 }
   
